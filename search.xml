@@ -1,48 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Pycharm本地连接Kudu及写入Kafka和Hive</title>
-    <url>/2020/05/09/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/</url>
-    <content><![CDATA[<h1 id="连接Apollo"><a href="#连接Apollo" class="headerlink" title="连接Apollo"></a>连接Apollo</h1><p>Apollo（阿波罗）是携程框架部门研发的开源配置管理中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyapollo</span><br><span class="line"></span><br><span class="line">client = pyapollo.ApolloClient(app_id=<span class="string">"iov-vehicle-track-point-hbase"</span>, config_server_url=<span class="string">"http://172.16.1.69:8080"</span>)</span><br><span class="line">client.start()</span><br><span class="line">print(client.get_value(<span class="string">"checkpoint"</span>))</span><br></pre></td></tr></table></figure>
-
-<h1 id="读取Kudu"><a href="#读取Kudu" class="headerlink" title="读取Kudu"></a>读取Kudu</h1><p>下载<a href="http://spark.apache.org/downloads.html" target="_blank" rel="noopener">spark</a>文件，目前所用版本为spark-2.4.5-bin-hadoop2.7.tgz，下载后解压到某一目录。</p>
-<p>当前项目点击edit configurations，</p>
-<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/FitZhX8s18TFUkLqEV_BTO5w5JGn" alt=""></p>
-<p>进入环境变量</p>
-<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/Fhbp0P4AEkUo5Qjb1M-AymI-oxt0" alt=""></p>
-<p>新增三个变量</p>
-<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/Fqh_LevVDWHH3PjdZaeOg3VDDATV" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PYSPARK_SUBMIT_ARGS&#x3D;--master local[2] --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.3,org.apache.kudu:kudu-spark2_2.11:1.11.1 pyspark-shell</span><br></pre></td></tr></table></figure>
-
-<p>使用–packages而不是–jars是因为涉及到很多依赖，会自动下载。</p>
-<p>打开Project Structure，Add Content Root，新增两个zip文件，路径在spark-2.4.5-bin-hadoop2.7\python\lib下</p>
-<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/FhMBa5vsq83W6gYaTNQ1yxJRs3Aa" alt=""></p>
-<p>相关python代码如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"></span><br><span class="line">spark = SparkSession \</span><br><span class="line">    .builder \</span><br><span class="line">    .appName(<span class="string">"ts_predict"</span>) \</span><br><span class="line">    .config(<span class="string">"spark.sql.execution.arrow.enabled"</span>, <span class="string">"true"</span>) \</span><br><span class="line">    .getOrCreate()</span><br><span class="line">spark.sparkContext.setLogLevel(<span class="string">'ERROR'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Running pyspark programme"</span>)</span><br><span class="line">kuduDF = spark.read.format(<span class="string">'kudu'</span>) \</span><br><span class="line">    .option(<span class="string">'kudu.master'</span>, <span class="string">"172.16.16.244:7051,172.16.16.251:7051,172.16.16.252:7051"</span>) \</span><br><span class="line">    .option(<span class="string">'kudu.table'</span>, <span class="string">"db_test.adsrt_mob_dri_route_15min"</span>) \</span><br><span class="line">    .load()</span><br><span class="line">routeDf = kuduDF.filter(<span class="string">f"substr(ds,1,8) &gt; '20200422'"</span>).cache()</span><br></pre></td></tr></table></figure>
-
-<h1 id="sparkDf写入Kafka"><a href="#sparkDf写入Kafka" class="headerlink" title="sparkDf写入Kafka"></a>sparkDf写入Kafka</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql.functions <span class="keyword">import</span> to_json, struct</span><br><span class="line">brokers = <span class="string">'172.16.19.171:9092,172.16.19.172:9092,172.16.19.173:9092'</span></span><br><span class="line">topic= xxx</span><br><span class="line">columns = [<span class="string">"stats_date"</span>, <span class="string">"city_code"</span>, <span class="string">"city_name"</span>, <span class="string">"pred_cnt"</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_kafka</span><span class="params">(df, brokers, topic, columns)</span>:</span></span><br><span class="line">    df.select(to_json(struct([df[x] <span class="keyword">for</span> x <span class="keyword">in</span> columns])).alias(<span class="string">"value"</span>)) \</span><br><span class="line">        .write.format(<span class="string">"kafka"</span>).option(<span class="string">"kafka.bootstrap.servers"</span>, brokers).option(<span class="string">"topic"</span>, topic) \</span><br><span class="line">        .save()</span><br></pre></td></tr></table></figure>
-
-<p>如果是pandas的DataFrame，则需要先转换为spark的DataFrame</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sparkDf = spark.createDataFrame(pandasDf)</span><br></pre></td></tr></table></figure>
-
-<h1 id="sparkDf写入Hive"><a href="#sparkDf写入Hive" class="headerlink" title="sparkDf写入Hive"></a>sparkDf写入Hive</h1><p>首先Hive建表</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">create table if not exists ml.t3_ml_ts_pred_call(stats_date string comment &#39;待预测时间片&#39;, pred_cnt double comment &#39;预测值&#39;, city_code string comment &#39;城市编码&#39;, city_name string comment &#39;城市名&#39;, pred_date string comment &#39;程序执行时间片&#39;) partition by (dt string comment &#39;日期&#39;)</span><br></pre></td></tr></table></figure>
-
-<p>然后写入Hive表</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sparkDf.write.format(<span class="string">"hive"</span>).mode(<span class="string">"append"</span>).saveAsTable(<span class="string">f"ml.t3_ml_ts_pred_call"</span>)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Spark</category>
-      </categories>
-      <tags>
-        <tag>Pycharm</tag>
-        <tag>Apollo</tag>
-        <tag>Kudu</tag>
-        <tag>Kafka</tag>
-        <tag>Hive</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo+NexT搭建个人博客</title>
     <url>/2020/05/09/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p>Hexo是在Node.js框架下的一个项目，利用Node.js提供的强大功能，完成从Markdown到静态网页的转换。NexT是Hexo项目下的一个主题插件，提供可高度定制的页面外观。</p>
@@ -214,6 +172,48 @@
         <tag>博客</tag>
         <tag>Hexo</tag>
         <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pycharm本地连接Kudu及写入Kafka和Hive</title>
+    <url>/2020/05/09/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/</url>
+    <content><![CDATA[<h1 id="连接Apollo"><a href="#连接Apollo" class="headerlink" title="连接Apollo"></a>连接Apollo</h1><p>Apollo（阿波罗）是携程框架部门研发的开源配置管理中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyapollo</span><br><span class="line"></span><br><span class="line">client = pyapollo.ApolloClient(app_id=<span class="string">"iov-vehicle-track-point-hbase"</span>, config_server_url=<span class="string">"http://172.16.1.69:8080"</span>)</span><br><span class="line">client.start()</span><br><span class="line">print(client.get_value(<span class="string">"checkpoint"</span>))</span><br></pre></td></tr></table></figure>
+
+<h1 id="读取Kudu"><a href="#读取Kudu" class="headerlink" title="读取Kudu"></a>读取Kudu</h1><p>下载<a href="http://spark.apache.org/downloads.html" target="_blank" rel="noopener">spark</a>文件，目前所用版本为spark-2.4.5-bin-hadoop2.7.tgz，下载后解压到某一目录。</p>
+<p>当前项目点击edit configurations，</p>
+<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/FitZhX8s18TFUkLqEV_BTO5w5JGn" alt=""></p>
+<p>进入环境变量</p>
+<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/Fhbp0P4AEkUo5Qjb1M-AymI-oxt0" alt=""></p>
+<p>新增三个变量</p>
+<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/Fqh_LevVDWHH3PjdZaeOg3VDDATV" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PYSPARK_SUBMIT_ARGS&#x3D;--master local[2] --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.3,org.apache.kudu:kudu-spark2_2.11:1.11.1 pyspark-shell</span><br></pre></td></tr></table></figure>
+
+<p>使用–packages而不是–jars是因为涉及到很多依赖，会自动下载。</p>
+<p>打开Project Structure，Add Content Root，新增两个zip文件，路径在spark-2.4.5-bin-hadoop2.7\python\lib下</p>
+<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/FhMBa5vsq83W6gYaTNQ1yxJRs3Aa" alt=""></p>
+<p>相关python代码如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"></span><br><span class="line">spark = SparkSession \</span><br><span class="line">    .builder \</span><br><span class="line">    .appName(<span class="string">"ts_predict"</span>) \</span><br><span class="line">    .config(<span class="string">"spark.sql.execution.arrow.enabled"</span>, <span class="string">"true"</span>) \</span><br><span class="line">    .getOrCreate()</span><br><span class="line">spark.sparkContext.setLogLevel(<span class="string">'ERROR'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Running pyspark programme"</span>)</span><br><span class="line">kuduDF = spark.read.format(<span class="string">'kudu'</span>) \</span><br><span class="line">    .option(<span class="string">'kudu.master'</span>, <span class="string">"172.16.16.244:7051,172.16.16.251:7051,172.16.16.252:7051"</span>) \</span><br><span class="line">    .option(<span class="string">'kudu.table'</span>, <span class="string">"db_test.adsrt_mob_dri_route_15min"</span>) \</span><br><span class="line">    .load()</span><br><span class="line">routeDf = kuduDF.filter(<span class="string">f"substr(ds,1,8) &gt; '20200422'"</span>).cache()</span><br></pre></td></tr></table></figure>
+
+<h1 id="sparkDf写入Kafka"><a href="#sparkDf写入Kafka" class="headerlink" title="sparkDf写入Kafka"></a>sparkDf写入Kafka</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql.functions <span class="keyword">import</span> to_json, struct</span><br><span class="line">brokers = <span class="string">'172.16.19.171:9092,172.16.19.172:9092,172.16.19.173:9092'</span></span><br><span class="line">topic= xxx</span><br><span class="line">columns = [<span class="string">"stats_date"</span>, <span class="string">"city_code"</span>, <span class="string">"city_name"</span>, <span class="string">"pred_cnt"</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_kafka</span><span class="params">(df, brokers, topic, columns)</span>:</span></span><br><span class="line">    df.select(to_json(struct([df[x] <span class="keyword">for</span> x <span class="keyword">in</span> columns])).alias(<span class="string">"value"</span>)) \</span><br><span class="line">        .write.format(<span class="string">"kafka"</span>).option(<span class="string">"kafka.bootstrap.servers"</span>, brokers).option(<span class="string">"topic"</span>, topic) \</span><br><span class="line">        .save()</span><br></pre></td></tr></table></figure>
+
+<p>如果是pandas的DataFrame，则需要先转换为spark的DataFrame</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sparkDf = spark.createDataFrame(pandasDf)</span><br></pre></td></tr></table></figure>
+
+<h1 id="sparkDf写入Hive"><a href="#sparkDf写入Hive" class="headerlink" title="sparkDf写入Hive"></a>sparkDf写入Hive</h1><p>首先Hive建表</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">create table if not exists ml.t3_ml_ts_pred_call(stats_date string comment &#39;待预测时间片&#39;, pred_cnt double comment &#39;预测值&#39;, city_code string comment &#39;城市编码&#39;, city_name string comment &#39;城市名&#39;, pred_date string comment &#39;程序执行时间片&#39;) partition by (dt string comment &#39;日期&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>然后写入Hive表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sparkDf.write.format(<span class="string">"hive"</span>).mode(<span class="string">"append"</span>).saveAsTable(<span class="string">f"ml.t3_ml_ts_pred_call"</span>)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Spark</category>
+      </categories>
+      <tags>
+        <tag>Pycharm</tag>
+        <tag>Apollo</tag>
+        <tag>Kudu</tag>
+        <tag>Kafka</tag>
+        <tag>Hive</tag>
       </tags>
   </entry>
 </search>
