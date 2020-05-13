@@ -77,17 +77,17 @@
 
 <h3 id="添加评论"><a href="#添加评论" class="headerlink" title="添加评论"></a>添加评论</h3><p>搜索知乎发现推荐最多的是<code>valine</code></p>
 <ol>
-<li><p>注册LeanCloud并创建一个开发版应用（免费）</p>
+<li><p>注册<a href="https://www.leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a>并创建一个开发版应用（免费）</p>
 </li>
 <li><p>创建class，名称为Comment</p>
-<p><img data-src="/images/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/Comment.png" alt=""></p>
+<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/FuM7Ry-hI85HPnz2uNPGESDgRaqN" alt=""></p>
 </li>
 <li><p>网站上线后添加安全域名</p>
-<p><img data-src="/images/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/web%E5%AE%89%E5%85%A8%E5%9F%9F%E5%90%8D.png" alt=""></p>
+<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/Fsd5_xZL8MZJuusQi1G8csfnom-L" alt=""></p>
 </li>
 <li><p>修改主题配置文件</p>
 <p>appid和appkey从应用keys获取</p>
-<p><img data-src="/images/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%BA%94%E7%94%A8keys.png" alt=""></p>
+<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/FjK_LeQuYkEqhrj7q3UxYh8kYxND" alt=""></p>
 </li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">valine:</span><br><span class="line">  enable: true</span><br><span class="line">  appid:  3mcxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxHsz</span><br><span class="line">  appkey:  2HCsxxxxxxxxxxxxxxxxxxxKzVF</span><br><span class="line">  notify: false # mail notifier , https:&#x2F;&#x2F;github.com&#x2F;xCss&#x2F;Valine&#x2F;wiki,目前已不支持</span><br><span class="line">  verify: false # Verification code</span><br><span class="line">  placeholder:  # comment box placeholder</span><br><span class="line">  avatar: mm # gravatar style</span><br><span class="line">  guest_info: nick,mail,link # custom comment header</span><br><span class="line">  pageSize: 10 # pagination size</span><br></pre></td></tr></table></figure>
@@ -103,7 +103,7 @@
 <p>更多高级用法请查看<a href="https://valine.js.org/" target="_blank" rel="noopener">valine官网</a></p>
 <h3 id="阅读量统计"><a href="#阅读量统计" class="headerlink" title="阅读量统计"></a>阅读量统计</h3><ol>
 <li><p>创建class，名称为Count</p>
-<p><img data-src="/images/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/Counter.png" alt=""></p>
+<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/FmCqRT5aEQn2V1SC3sfN_wkacqYl" alt=""></p>
 </li>
 <li><p>修改主题配置文件</p>
 </li>
@@ -131,9 +131,13 @@
 
 
 <h3 id="百度统计"><a href="#百度统计" class="headerlink" title="百度统计"></a>百度统计</h3><ol>
-<li>登录 <a href="http://tongji.baidu.com/" target="_blank" rel="noopener">百度统计</a>， 定位到站点的代码获取页面</li>
-<li>复制 <code>hm.js?</code> 后面那串统计脚本 id，如： <img data-src="/images/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/analytics-baidu-id.png" alt="img"></li>
-<li>编辑 <strong>主题配置文件</strong>， 修改字段 <code>baidu_analytics</code> 字段，值设置成你的百度统计脚本 id。</li>
+<li><p>登录 <a href="http://tongji.baidu.com/" target="_blank" rel="noopener">百度统计</a>， 定位到站点的代码获取页面</p>
+</li>
+<li><p>复制 <code>hm.js?</code> 后面那串统计脚本 id，如：</p>
+<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/Fj3SKHKRm74kIFL71BX1MN0w2_hR" alt=""></p>
+</li>
+<li><p>编辑 <strong>主题配置文件</strong>， 修改字段 <code>baidu_analytics</code> 字段，值设置成你的百度统计脚本 id。</p>
+</li>
 </ol>
 <h3 id="在右上角或者左上角实现fork-me-on-github"><a href="#在右上角或者左上角实现fork-me-on-github" class="headerlink" title="在右上角或者左上角实现fork me on github"></a>在右上角或者左上角实现fork me on github</h3><ol>
 <li>在<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fblog%2F273-github-ribbons" target="_blank" rel="noopener">GitHub Ribbons</a>或<a href="https://links.jianshu.com/go?to=http%3A%2F%2Ftholman.com%2Fgithub-corners%2F" target="_blank" rel="noopener">GitHub Corners</a>选择一款你喜欢的挂饰，拷贝方框内的代码</li>
@@ -175,16 +179,16 @@
 
 <h1 id="读取Kudu"><a href="#读取Kudu" class="headerlink" title="读取Kudu"></a>读取Kudu</h1><p>下载<a href="http://spark.apache.org/downloads.html" target="_blank" rel="noopener">spark</a>文件，目前所用版本为spark-2.4.5-bin-hadoop2.7.tgz，下载后解压到某一目录。</p>
 <p>当前项目点击edit configurations，</p>
-<p><img data-src="/images/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/%E9%85%8D%E7%BD%AE%E9%A1%B9.png" alt="配置项"></p>
+<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/FitZhX8s18TFUkLqEV_BTO5w5JGn" alt=""></p>
 <p>进入环境变量</p>
-<p><img data-src="/images/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%9B%BE%E6%A0%87.png" alt="环境变量图标"></p>
+<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/Fhbp0P4AEkUo5Qjb1M-AymI-oxt0" alt=""></p>
 <p>新增三个变量</p>
-<p><img data-src="/images/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png" alt="环境变量"></p>
+<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/Fqh_LevVDWHH3PjdZaeOg3VDDATV" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PYSPARK_SUBMIT_ARGS&#x3D;--master local[2] --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.3,org.apache.kudu:kudu-spark2_2.11:1.11.1 pyspark-shell</span><br></pre></td></tr></table></figure>
 
 <p>使用–packages而不是–jars是因为涉及到很多依赖，会自动下载。</p>
 <p>打开Project Structure，Add Content Root，新增两个zip文件，路径在spark-2.4.5-bin-hadoop2.7\python\lib下</p>
-<p><img data-src="/images/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/%E5%A2%9E%E5%8A%A0root%E5%8C%85.png" alt="增加root包"></p>
+<p><img data-src="http://qa9ffxgt6.bkt.clouddn.com/FhMBa5vsq83W6gYaTNQ1yxJRs3Aa" alt=""></p>
 <p>相关python代码如下：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"></span><br><span class="line">spark = SparkSession \</span><br><span class="line">    .builder \</span><br><span class="line">    .appName(<span class="string">"ts_predict"</span>) \</span><br><span class="line">    .config(<span class="string">"spark.sql.execution.arrow.enabled"</span>, <span class="string">"true"</span>) \</span><br><span class="line">    .getOrCreate()</span><br><span class="line">spark.sparkContext.setLogLevel(<span class="string">'ERROR'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Running pyspark programme"</span>)</span><br><span class="line">kuduDF = spark.read.format(<span class="string">'kudu'</span>) \</span><br><span class="line">    .option(<span class="string">'kudu.master'</span>, <span class="string">"172.16.16.244:7051,172.16.16.251:7051,172.16.16.252:7051"</span>) \</span><br><span class="line">    .option(<span class="string">'kudu.table'</span>, <span class="string">"db_test.adsrt_mob_dri_route_15min"</span>) \</span><br><span class="line">    .load()</span><br><span class="line">routeDf = kuduDF.filter(<span class="string">f"substr(ds,1,8) &gt; '20200422'"</span>).cache()</span><br></pre></td></tr></table></figure>
 
