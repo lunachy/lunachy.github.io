@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Pandas拾遗</title>
+    <url>/2020/05/22/Pandas%E6%8B%BE%E9%81%97/</url>
+    <content><![CDATA[<h2 id="pandas中截取一列字符串中每行字符串的一部分"><a href="#pandas中截取一列字符串中每行字符串的一部分" class="headerlink" title="pandas中截取一列字符串中每行字符串的一部分"></a>pandas中截取一列字符串中每行字符串的一部分</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[<span class="string">'col'</span>].str[<span class="number">1</span>:<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="pandas读取csv-xls文件时指定列的数据类型"><a href="#pandas读取csv-xls文件时指定列的数据类型" class="headerlink" title="pandas读取csv/xls文件时指定列的数据类型"></a>pandas读取csv/xls文件时指定列的数据类型</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">converters = &#123;<span class="string">"stats_date"</span>: str, <span class="string">"city_code"</span>: str, <span class="string">"call_route_cnt"</span>: int, <span class="string">"reply_route_cnt"</span>: int, <span class="string">"business_id"</span>: int&#125;</span><br><span class="line">df = pd.read_csv(csv_path, converters=converters)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Pandas</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Pandas</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo+NexT搭建个人博客</title>
     <url>/2020/05/09/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p>Hexo是在Node.js框架下的一个项目，利用Node.js提供的强大功能，完成从Markdown到静态网页的转换。NexT是Hexo项目下的一个主题插件，提供可高度定制的页面外观。</p>

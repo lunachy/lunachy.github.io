@@ -185,6 +185,118 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/22/Pandas%E6%8B%BE%E9%81%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/love.jpg">
+      <meta itemprop="name" content="Chy">
+      <meta itemprop="description" content="朝花夕拾 聊以记之">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chy's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/22/Pandas%E6%8B%BE%E9%81%97/" class="post-title-link" itemprop="url">Pandas拾遗</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-22 11:39:11 / 修改时间：11:39:40" itemprop="dateCreated datePublished" datetime="2020-05-22T11:39:11+08:00">2020-05-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Pandas/" itemprop="url" rel="index"><span itemprop="name">Pandas</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/22/Pandas%E6%8B%BE%E9%81%97/" class="post-meta-item leancloud_visitors" data-flag-title="Pandas拾遗" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/05/22/Pandas%E6%8B%BE%E9%81%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/22/Pandas%E6%8B%BE%E9%81%97/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>233</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="pandas中截取一列字符串中每行字符串的一部分"><a href="#pandas中截取一列字符串中每行字符串的一部分" class="headerlink" title="pandas中截取一列字符串中每行字符串的一部分"></a>pandas中截取一列字符串中每行字符串的一部分</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'col'</span>].str[<span class="number">1</span>:<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="pandas读取csv-xls文件时指定列的数据类型"><a href="#pandas读取csv-xls文件时指定列的数据类型" class="headerlink" title="pandas读取csv/xls文件时指定列的数据类型"></a>pandas读取csv/xls文件时指定列的数据类型</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">converters = &#123;<span class="string">"stats_date"</span>: str, <span class="string">"city_code"</span>: str, <span class="string">"call_route_cnt"</span>: int, <span class="string">"reply_route_cnt"</span>: int, <span class="string">"business_id"</span>: int&#125;</span><br><span class="line">df = pd.read_csv(csv_path, converters=converters)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/22/Pandas%E6%8B%BE%E9%81%97/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -497,20 +609,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
