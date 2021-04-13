@@ -200,6 +200,115 @@
       </tags>
   </entry>
   <entry>
+    <title>Jetbrains激活及相关问题</title>
+    <url>/2021/04/14/Jetbrains%E6%BF%80%E6%B4%BB%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="激活报错如何解决"><a href="#激活报错如何解决" class="headerlink" title="激活报错如何解决"></a>激活报错如何解决</h1><h2 id="Certificate-used-to-sign-the-license-is-not-signed-by-Jetbrains-root-certificate"><a href="#Certificate-used-to-sign-the-license-is-not-signed-by-Jetbrains-root-certificate" class="headerlink" title="Certificate used to sign the license is not signed by Jetbrains root certificate"></a>Certificate used to sign the license is not signed by Jetbrains root certificate</h2><p>软件用Jar包破解过，解决方法如下</p>
+<ol>
+<li><p>在软件菜单点击<strong>Help –&gt; Edit Custom VM Options</strong>（如无法打开菜单，请点击试用30天，如试用已结束可以直接修改xxx.vmoptions文件（右键点击文件，以记事本打开，修改后保存关闭），一般在软件安装目录的config文件夹）<br>删除所有以 <strong>-javaagent:xxx</strong> 开头的行</p>
+</li>
+<li><p>检查<strong>hosts</strong>文件，右键点击文件，以记事本打开，删除所有出现<strong>jetbrains</strong>的行，然后保存关闭</p>
+<p>windows的hosts文件位于：C:/Windows/System32/Drivers/etc/hosts<br>linux或mac的hosts文件位于：/etc/hosts</p>
+</li>
+<li><p>重启软件输入账号密码即可</p>
+</li>
+</ol>
+<h2 id="Jetbrains-Account-connection-error"><a href="#Jetbrains-Account-connection-error" class="headerlink" title="Jetbrains Account connection error"></a>Jetbrains Account connection error</h2><p><img data-src="https://i.loli.net/2021/04/14/jPuMESxQiNOsFgB.png" alt=""></p>
+<ol>
+<li><p>检查hosts文件，右键点击文件，以记事本打开，删除所有出现jetbrains的行，然后保存关闭</p>
+<p>windows的hosts文件位于：C:/Windows/System32/Drivers/etc/hosts<br>linux或mac的hosts文件位于：/etc/hosts</p>
+</li>
+<li><p>重启软件输入账号密码即可</p>
+</li>
+<li><p>如果仍不能正常激活，请参考下<a href="https://blog.csdn.net/axiebuzhen/article/details/106817066" target="_blank" rel="noopener">https://blog.csdn.net/axiebuzhen/article/details/106817066</a></p>
+</li>
+</ol>
+<h2 id="Authorization-failed-Wrong-username-or-password"><a href="#Authorization-failed-Wrong-username-or-password" class="headerlink" title="Authorization failed: Wrong username or password"></a>Authorization failed: Wrong username or password</h2><ol>
+<li><p>打开<a href="https://account.jetbrains.com/login" target="_blank" rel="noopener">官网登陆页面</a>，输入账号密码点击Sign In，确认下是否能登陆成功，如果可以登陆成功且账号有授权，则账号无问题，如果登陆不成功，及时和客服反馈。</p>
+</li>
+<li><p>检查下账号密码是否输入错误，使用复制粘贴的方式，避免输入错误。</p>
+</li>
+<li><p>如果是点击激活要等好久才提示用户名或密码错误，则可能是网路问题，建议开手机热点或重启试试。</p>
+</li>
+</ol>
+<h1 id="成品账号如何激活"><a href="#成品账号如何激活" class="headerlink" title="成品账号如何激活"></a>成品账号如何激活</h1><ol>
+<li>会发送可用的账号和密码</li>
+<li>打开软件，在激活界面，选择JB Account，输入发送的账号密码即可（激活自己账号或教育邮箱独享请往后看）</li>
+<li>如果已经点了试用的可以在软件菜单点击Help –&gt; Register</li>
+</ol>
+<p><img data-src="https://i.loli.net/2021/04/13/uULbimj7snqQwVf.png" alt=""></p>
+<h1 id="如何注册Jetbrains账号及确保账号No-Available-Licenses"><a href="#如何注册Jetbrains账号及确保账号No-Available-Licenses" class="headerlink" title="如何注册Jetbrains账号及确保账号No Available Licenses"></a>如何注册Jetbrains账号及确保账号No Available Licenses</h1><ol>
+<li>如还没有Jetbrains账号，打开<a href="https://account.jetbrains.com/login" target="_blank" rel="noopener">官网注册页面</a>，输入自己的邮箱点击Sign Up，然后该邮箱地址会收到一封邮件，确认下即可，新账号的状态肯定是No Available Licenses。</li>
+</ol>
+<p><img data-src="https://i.loli.net/2021/04/13/S7h1JV6g5XvLB8R.png" alt=""></p>
+<ol start="2">
+<li><p>如已有Jetbrains账号，打开<a href="https://account.jetbrains.com/login" target="_blank" rel="noopener">官网登陆页面</a>，输入自己的账号密码点击Sign In，看下账号状态，务必确保No Available Licenses，如果是license suspended或者存在可用的license，则需要重新注册一个账号。<br><img data-src="https://i.loli.net/2021/04/14/IRopV8aKg1ek425.png" alt=""></p>
+<p>如坚持用原来的账号，则需要删除账号，再用原邮箱重新注册。</p>
+   <img data-src="https://i.loli.net/2021/04/13/4UiaJD5SgoYhBFX.png" alt="" style="zoom:80%;" />
+
+
+
+</li>
+</ol>
+<h1 id="自己账号如何激活"><a href="#自己账号如何激活" class="headerlink" title="自己账号如何激活"></a>自己账号如何激活</h1><ol>
+<li><p>会发送一串链接</p>
+</li>
+<li><p>首先注册账号（如已有请忽略）和检查账号状态，具体参见上面</p>
+<p>[如何注册Jetbrains账号及确保账号No Available Licenses](#如何注册Jetbrains账号及确保账号No Available Licenses)</p>
+</li>
+<li><p>点击发送的链接，网页滑到底，点击I Accept，然后用你的Jetbrains账号密码登陆即可，网页会显示授权有效期及可激活的产品等信息。</p>
+<img data-src="https://i.loli.net/2021/04/13/bnWzcekgH913IdJ.png" alt="" style="zoom:80%;" />
+</li>
+<li><p>若打开链接显示已过期或者I accept按钮不能点击，尝试换个浏览器或者用手机试试，正常都是有效链接。</p>
+</li>
+</ol>
+<h1 id="教育邮箱独享如何激活"><a href="#教育邮箱独享如何激活" class="headerlink" title="教育邮箱独享如何激活"></a>教育邮箱独享如何激活</h1><ol>
+<li><p>会发送edu邮箱和密码，注意edu邮箱和Jetbrains账号独立不相关。</p>
+</li>
+<li><p>首先注册账号（如已有请忽略）和检查账号状态，具体参见上面</p>
+<p>[如何注册Jetbrains账号及确保账号No Available Licenses](#如何注册Jetbrains账号及确保账号No Available Licenses)</p>
+</li>
+<li><p>打开<a href="https://www.jetbrains.com/shop/eform/students" target="_blank" rel="noopener">学生申请网址</a> 按图示填写，其余地方和图上保持一致就行，最后点击申请免费产品。<br><img data-src="https://i.loli.net/2021/04/13/6wCMsNntaGZrOge.png" alt=""></p>
+</li>
+<li><p>安装foxmail邮箱管理软件<br>windows下载地址：<a href="https://www.foxmail.com/win/download" target="_blank" rel="noopener">https://www.foxmail.com/win/download</a><br>mac下载地址：<a href="https://www.foxmail.com/mac/download" target="_blank" rel="noopener">https://www.foxmail.com/mac/download</a></p>
+</li>
+<li><p>打开foxmail软件，新建其它邮箱，输入发送的edu邮箱和密码，点击创建。</p>
+</li>
+<li><p>打开收件箱中的标题为Jetbrains Educational Pack Confirmation的邮件，点击其中的follow this link链接。<br><img data-src="https://i.loli.net/2021/04/14/rxSOAftWQa4le65.png" alt=""></p>
+</li>
+<li><p>跳转到EDU的订阅协议，滑到底，点击右下方的I Accept按钮，跳转到Jetbrains登陆页面。</p>
+<p><img data-src="https://i.loli.net/2021/04/14/GFudQLwxYogni9M.jpg" alt=""></p>
+</li>
+<li><p>若打开链接显示已过期或者I accept按钮不能点击，尝试换个浏览器或者用手机试试，正常都是有效链接。</p>
+</li>
+<li><p>然后用你的Jetbrains账号密码登陆即可，网页会显示授权有效期及可激活的产品等信息。</p>
+<img data-src="https://i.loli.net/2021/04/13/bnWzcekgH913IdJ.png" alt="" style="zoom:80%;" />
+</li>
+<li><p>若需要修改邮箱密码，请打开网页端<a href="https://exmail.qq.com/login" target="_blank" rel="noopener">登录地址</a>，输入edu邮箱和密码，可能需要绑定微信，比较麻烦，一般不建议修改。</p>
+</li>
+</ol>
+<h1 id="汉化包"><a href="#汉化包" class="headerlink" title="汉化包"></a>汉化包</h1><p>如需汉化软件请打开如下网盘地址获取<br>链接：<a href="https://pan.baidu.com/s/1duUpA1sEzHOUA5U0yrf1ww" target="_blank" rel="noopener">https://pan.baidu.com/s/1duUpA1sEzHOUA5U0yrf1ww</a><br>提取码：yu2f</p>
+<h1 id="全家桶最新版下载地址"><a href="#全家桶最新版下载地址" class="headerlink" title="全家桶最新版下载地址"></a>全家桶最新版下载地址</h1><ol>
+<li>IntelliJ IDEA Ultimate   <a href="https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows" target="_blank" rel="noopener">Windows</a>   <a href="https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac" target="_blank" rel="noopener">Mac</a>   <a href="https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux" target="_blank" rel="noopener">Linux</a></li>
+<li>PyCharm    <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows" target="_blank" rel="noopener">Windows</a>   <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac" target="_blank" rel="noopener">Mac</a>   <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=linux" target="_blank" rel="noopener">Linux</a></li>
+<li>WebStorm    <a href="https://www.jetbrains.com/webstorm/download/download-thanks.html?platform=windows" target="_blank" rel="noopener">Windows</a>   <a href="https://www.jetbrains.com/webstorm/download/download-thanks.html?platform=mac" target="_blank" rel="noopener">Mac</a>   <a href="https://www.jetbrains.com/webstorm/download/download-thanks.html?platform=linux" target="_blank" rel="noopener">Linux</a></li>
+<li>GoLand    <a href="https://www.jetbrains.com/go/download/download-thanks.html?platform=windows" target="_blank" rel="noopener">Windows</a>   <a href="https://www.jetbrains.com/go/download/download-thanks.html?platform=mac" target="_blank" rel="noopener">Mac</a>   <a href="https://www.jetbrains.com/go/download/download-thanks.html?platform=linux" target="_blank" rel="noopener">Linux</a></li>
+<li>DataGrip    <a href="https://www.jetbrains.com/datagrip/download/download-thanks.html?platform=windows" target="_blank" rel="noopener">Windows</a>   <a href="https://www.jetbrains.com/datagrip/download/download-thanks.html?platform=mac" target="_blank" rel="noopener">Mac</a>   <a href="https://www.jetbrains.com/datagrip/download/download-thanks.html?platform=linux" target="_blank" rel="noopener">Linux</a></li>
+</ol>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ol>
+<li>账号都是一年激活一次，永久的话会持续激活维护</li>
+<li>edu教育邮箱除了可以申请激活Jetbrains外，还有微软、Apple Music等多项羊毛可薅。</li>
+</ol>
+<h1 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h1><p>可扫描以下二维码添加，售后复购更方便~</p>
+<p><img data-src="https://i.loli.net/2021/04/14/vDOVjHWEhMIruCX.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>Jetbrains</category>
+      </categories>
+      <tags>
+        <tag>Jetbrains</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Pycharm本地连接Kudu及写入Kafka和Hive</title>
     <url>/2021/04/13/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/</url>
     <content><![CDATA[<h1 id="连接Apollo"><a href="#连接Apollo" class="headerlink" title="连接Apollo"></a>连接Apollo</h1><p>Apollo（阿波罗）是携程框架部门研发的开源配置管理中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性。</p>
@@ -242,115 +351,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Jetbrains激活及相关问题</title>
-    <url>/2021/04/14/Jetbrains%E6%BF%80%E6%B4%BB%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="激活报错如何解决"><a href="#激活报错如何解决" class="headerlink" title="激活报错如何解决"></a>激活报错如何解决</h1><h2 id="Certificate-used-to-sign-the-license-is-not-signed-by-Jetbrains-root-certificate"><a href="#Certificate-used-to-sign-the-license-is-not-signed-by-Jetbrains-root-certificate" class="headerlink" title="Certificate used to sign the license is not signed by Jetbrains root certificate"></a>Certificate used to sign the license is not signed by Jetbrains root certificate</h2><p>软件用Jar包破解过，解决方法如下</p>
-<ol>
-<li><p>在软件菜单点击<strong>Help –&gt; Edit Custom VM Options</strong>（如无法打开菜单，请点击试用30天，如试用已结束可以直接修改xxx.vmoptions文件（右键点击文件，以记事本打开，修改后保存关闭），一般在软件安装目录的config文件夹）<br>删除所有以 <strong>-javaagent:xxx</strong> 开头的行</p>
-</li>
-<li><p>检查<strong>hosts</strong>文件，右键点击文件，以记事本打开，删除所有出现<strong>jetbrains</strong>的行，然后保存关闭</p>
-<p>windows的hosts文件位于：C:/Windows/System32/Drivers/etc/hosts<br>linux或mac的hosts文件位于：/etc/hosts</p>
-</li>
-<li><p>重启软件输入账号密码即可</p>
-</li>
-</ol>
-<h2 id="Jetbrains-Account-connection-error"><a href="#Jetbrains-Account-connection-error" class="headerlink" title="Jetbrains Account connection error"></a>Jetbrains Account connection error</h2><p><img data-src="https://i.loli.net/2021/04/14/jPuMESxQiNOsFgB.png" alt="image-20210413231615716"></p>
-<ol>
-<li><p>检查hosts文件，右键点击文件，以记事本打开，删除所有出现jetbrains的行，然后保存关闭</p>
-<p>windows的hosts文件位于：C:/Windows/System32/Drivers/etc/hosts<br>linux或mac的hosts文件位于：/etc/hosts</p>
-</li>
-<li><p>重启软件输入账号密码即可</p>
-</li>
-<li><p>如果仍不能正常激活，请参考下<a href="https://blog.csdn.net/axiebuzhen/article/details/106817066" target="_blank" rel="noopener">https://blog.csdn.net/axiebuzhen/article/details/106817066</a></p>
-</li>
-</ol>
-<h2 id="Authorization-failed-Wrong-username-or-password"><a href="#Authorization-failed-Wrong-username-or-password" class="headerlink" title="Authorization failed: Wrong username or password"></a>Authorization failed: Wrong username or password</h2><ol>
-<li><p>打开<a href="https://account.jetbrains.com/login" target="_blank" rel="noopener">官网登陆页面</a>，输入账号密码点击Sign In，确认下是否能登陆成功，如果可以登陆成功且账号有授权，则账号无问题，如果登陆不成功，及时和客服反馈。</p>
-</li>
-<li><p>检查下账号密码是否输入错误，使用复制粘贴的方式，避免输入错误。</p>
-</li>
-<li><p>如果是点击激活要等好久才提示用户名或密码错误，则可能是网路问题，建议开手机热点或重启试试。</p>
-</li>
-</ol>
-<h1 id="成品账号如何激活"><a href="#成品账号如何激活" class="headerlink" title="成品账号如何激活"></a>成品账号如何激活</h1><ol>
-<li>会发送可用的账号和密码</li>
-<li>打开软件，在激活界面，选择JB Account，输入发送的账号密码即可（激活自己账号或教育邮箱独享请往后看）</li>
-<li>如果已经点了试用的可以在软件菜单点击Help –&gt; Register</li>
-</ol>
-<p><img data-src="https://i.loli.net/2021/04/13/uULbimj7snqQwVf.png" alt="image-20210413230818602"></p>
-<h1 id="如何注册Jetbrains账号及确保账号No-Available-Licenses"><a href="#如何注册Jetbrains账号及确保账号No-Available-Licenses" class="headerlink" title="如何注册Jetbrains账号及确保账号No Available Licenses"></a>如何注册Jetbrains账号及确保账号No Available Licenses</h1><ol>
-<li>如还没有Jetbrains账号，打开<a href="https://account.jetbrains.com/login" target="_blank" rel="noopener">官网注册页面</a>，输入自己的邮箱点击Sign Up，然后该邮箱地址会收到一封邮件，确认下即可，新账号的状态肯定是No Available Licenses。</li>
-</ol>
-<p><img data-src="https://i.loli.net/2021/04/13/S7h1JV6g5XvLB8R.png" alt="image-20210413234055447"></p>
-<ol start="2">
-<li><p>如已有Jetbrains账号，打开<a href="https://account.jetbrains.com/login" target="_blank" rel="noopener">官网登陆页面</a>，输入自己的账号密码点击Sign In，看下账号状态，务必确保No Available Licenses，如果是license suspended或者存在可用的license，则需要重新注册一个账号。<br><img data-src="https://i.loli.net/2021/04/14/IRopV8aKg1ek425.png" alt="image-20210414000250403"></p>
-<p>如坚持用原来的账号，则需要删除账号，再用原邮箱重新注册。</p>
-   <img data-src="https://i.loli.net/2021/04/13/4UiaJD5SgoYhBFX.png" alt="image-20210413235030027" style="zoom:80%;" />
-
-
-
-</li>
-</ol>
-<h1 id="自己账号如何激活"><a href="#自己账号如何激活" class="headerlink" title="自己账号如何激活"></a>自己账号如何激活</h1><ol>
-<li><p>会发送一串链接</p>
-</li>
-<li><p>首先注册账号（如已有请忽略）和检查账号状态，具体参见上面</p>
-<p>[如何注册Jetbrains账号及确保账号No Available Licenses](#如何注册Jetbrains账号及确保账号No Available Licenses)</p>
-</li>
-<li><p>点击发送的链接，网页滑到底，点击I Accept，然后用你的Jetbrains账号密码登陆即可，网页会显示授权有效期及可激活的产品等信息。</p>
-<img data-src="https://i.loli.net/2021/04/13/bnWzcekgH913IdJ.png" alt="image-20210413235545321" style="zoom:80%;" />
-</li>
-<li><p>若打开链接显示已过期或者I accept按钮不能点击，尝试换个浏览器或者用手机试试，正常都是有效链接。</p>
-</li>
-</ol>
-<h1 id="教育邮箱独享如何激活"><a href="#教育邮箱独享如何激活" class="headerlink" title="教育邮箱独享如何激活"></a>教育邮箱独享如何激活</h1><ol>
-<li><p>会发送edu邮箱和密码，注意edu邮箱和Jetbrains账号独立不相关。</p>
-</li>
-<li><p>首先注册账号（如已有请忽略）和检查账号状态，具体参见上面</p>
-<p>[如何注册Jetbrains账号及确保账号No Available Licenses](#如何注册Jetbrains账号及确保账号No Available Licenses)</p>
-</li>
-<li><p>打开<a href="https://www.jetbrains.com/shop/eform/students" target="_blank" rel="noopener">学生申请网址</a> 按图示填写，其余地方和图上保持一致就行，最后点击申请免费产品。<br><img data-src="https://i.loli.net/2021/04/13/6wCMsNntaGZrOge.png" alt="image-20210413235821066"></p>
-</li>
-<li><p>安装foxmail邮箱管理软件<br>windows下载地址：<a href="https://www.foxmail.com/win/download" target="_blank" rel="noopener">https://www.foxmail.com/win/download</a><br>mac下载地址：<a href="https://www.foxmail.com/mac/download" target="_blank" rel="noopener">https://www.foxmail.com/mac/download</a></p>
-</li>
-<li><p>打开foxmail软件，新建其它邮箱，输入发送的edu邮箱和密码，点击创建。</p>
-</li>
-<li><p>打开收件箱中的标题为Jetbrains Educational Pack Confirmation的邮件，点击其中的follow this link链接。<br><img data-src="https://i.loli.net/2021/04/14/rxSOAftWQa4le65.png" alt="image-20210414002918945"></p>
-</li>
-<li><p>跳转到EDU的订阅协议，滑到底，点击右下方的I Accept按钮，跳转到Jetbrains登陆页面。</p>
-<p><img data-src="https://i.loli.net/2021/04/14/GFudQLwxYogni9M.jpg" alt="img"></p>
-</li>
-<li><p>若打开链接显示已过期或者I accept按钮不能点击，尝试换个浏览器或者用手机试试，正常都是有效链接。</p>
-</li>
-<li><p>然后用你的Jetbrains账号密码登陆即可，网页会显示授权有效期及可激活的产品等信息。</p>
-<img data-src="https://i.loli.net/2021/04/13/bnWzcekgH913IdJ.png" alt="image-20210413235545321" style="zoom:80%;" />
-</li>
-<li><p>若需要修改邮箱密码，请打开网页端<a href="https://exmail.qq.com/login" target="_blank" rel="noopener">登录地址</a>，输入edu邮箱和密码，可能需要绑定微信，比较麻烦，一般不建议修改。</p>
-</li>
-</ol>
-<h1 id="汉化包"><a href="#汉化包" class="headerlink" title="汉化包"></a>汉化包</h1><p>如需汉化软件请打开如下网盘地址获取<br>链接：<a href="https://pan.baidu.com/s/1duUpA1sEzHOUA5U0yrf1ww" target="_blank" rel="noopener">https://pan.baidu.com/s/1duUpA1sEzHOUA5U0yrf1ww</a><br>提取码：yu2f</p>
-<h1 id="全家桶最新版下载地址"><a href="#全家桶最新版下载地址" class="headerlink" title="全家桶最新版下载地址"></a>全家桶最新版下载地址</h1><ol>
-<li>IntelliJ IDEA Ultimate   <a href="https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows" target="_blank" rel="noopener">Windows</a>   <a href="https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac" target="_blank" rel="noopener">Mac</a>   <a href="https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux" target="_blank" rel="noopener">Linux</a></li>
-<li>PyCharm    <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows" target="_blank" rel="noopener">Windows</a>   <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac" target="_blank" rel="noopener">Mac</a>   <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=linux" target="_blank" rel="noopener">Linux</a></li>
-<li>WebStorm    <a href="https://www.jetbrains.com/webstorm/download/download-thanks.html?platform=windows" target="_blank" rel="noopener">Windows</a>   <a href="https://www.jetbrains.com/webstorm/download/download-thanks.html?platform=mac" target="_blank" rel="noopener">Mac</a>   <a href="https://www.jetbrains.com/webstorm/download/download-thanks.html?platform=linux" target="_blank" rel="noopener">Linux</a></li>
-<li>GoLand    <a href="https://www.jetbrains.com/go/download/download-thanks.html?platform=windows" target="_blank" rel="noopener">Windows</a>   <a href="https://www.jetbrains.com/go/download/download-thanks.html?platform=mac" target="_blank" rel="noopener">Mac</a>   <a href="https://www.jetbrains.com/go/download/download-thanks.html?platform=linux" target="_blank" rel="noopener">Linux</a></li>
-<li>DataGrip    <a href="https://www.jetbrains.com/datagrip/download/download-thanks.html?platform=windows" target="_blank" rel="noopener">Windows</a>   <a href="https://www.jetbrains.com/datagrip/download/download-thanks.html?platform=mac" target="_blank" rel="noopener">Mac</a>   <a href="https://www.jetbrains.com/datagrip/download/download-thanks.html?platform=linux" target="_blank" rel="noopener">Linux</a></li>
-</ol>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ol>
-<li>账号都是一年激活一次，永久的话会持续激活维护</li>
-<li>edu教育邮箱除了可以申请激活Jetbrains外，还有微软、Apple Music等多项羊毛可薅。</li>
-</ol>
-<h1 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h1><p>可扫描以下二维码添加，售后复购更方便~</p>
-<p><img data-src="https://i.loli.net/2021/04/14/vDOVjHWEhMIruCX.png" alt="image-20210414010752084"></p>
-]]></content>
-      <categories>
-        <category>Jetbrains</category>
-      </categories>
-      <tags>
-        <tag>Jetbrains</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spark拾遗</title>
     <url>/2021/04/13/Spark%E6%8B%BE%E9%81%97/</url>
     <content><![CDATA[<h2 id="spark-overwrite分区覆盖导致全表覆盖问题"><a href="#spark-overwrite分区覆盖导致全表覆盖问题" class="headerlink" title="spark overwrite分区覆盖导致全表覆盖问题"></a>spark overwrite分区覆盖导致全表覆盖问题</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">set hive.<span class="keyword">exec</span>.dynamic.partition=true; </span><br><span class="line">set hive.<span class="keyword">exec</span>.dynamic.partition.mode=nonstrict;</span><br><span class="line">spark.conf.set(<span class="string">"spark.sql.sources.partitionOverwriteMode"</span>,<span class="string">"dynamic"</span>)</span><br><span class="line">df.write.mode(saveMode).insertInto(table)</span><br></pre></td></tr></table></figure>
@@ -362,6 +362,32 @@
       <tags>
         <tag>Spark</tag>
         <tag>Scala</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker拾遗</title>
+    <url>/2021/04/13/docker%E6%8B%BE%E9%81%97/</url>
+    <content><![CDATA[<h2 id="docker后台启动容器"><a href="#docker后台启动容器" class="headerlink" title="docker后台启动容器"></a>docker后台启动容器</h2><p>-d参数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --gpus all --name pytorch_chy -itd -v /home/chengy:/workspace   pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2 /bin/bash</span><br><span class="line"></span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker ps -a</span></span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line">2c17ed69e994        505a4186e3d9        <span class="string">"/bin/bash"</span>         About an hour ago   Up About an hour                     pytorch_chy</span><br><span class="line"></span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker attach 2</span></span><br><span class="line">root@2c17ed69e994:/workspace<span class="comment"># ll</span></span><br><span class="line">total 27516</span><br><span class="line">drwxrwxrwx 3 root root     4096 Jul  2 14:22 ./</span><br><span class="line">drwxr-xr-x 1 root root     4096 Jul  2 13:18 ../</span><br><span class="line">drwxrwxr-x 8 1000 1000     4096 Jul  2 14:26 FaceMaskDetection/</span><br><span class="line">-rw-rw-r-- 1 1000 1000 28156745 Jul  2 08:48 opencv_python-4.2.0.34-cp37-cp37m-manylinux1_x86_64.whl</span><br><span class="line">-rw-rw-r-- 1 1000 1000     3676 Jul  2 08:57 sources.list</span><br></pre></td></tr></table></figure>
+
+<p>如果要正常退出不关闭容器，请按<strong>Ctrl+P+Q</strong>进行退出容器，否则容器就会变成Exited的状态</p>
+<h2 id="docker共享宿主机与镜像目录"><a href="#docker共享宿主机与镜像目录" class="headerlink" title="docker共享宿主机与镜像目录"></a>docker共享宿主机与镜像目录</h2><p>-v 参数，宿主机目录:docker镜像目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --gpus all --name pytorch_chy -itd -v &#x2F;home&#x2F;chengy:&#x2F;workspace   pytorch&#x2F;pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2 &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
+
+<h2 id="docker保存镜像"><a href="#docker保存镜像" class="headerlink" title="docker保存镜像"></a>docker保存镜像</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit 2c17ed69e994 pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2</span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker images</span></span><br><span class="line">REPOSITORY          TAG                                 IMAGE ID            CREATED             SIZE</span><br><span class="line">pytorch/pytorch     1.5.1-cuda10.1-cudnn7-runtime-cv2   bdc2cf9c30fc        15 minutes ago      3.37GB</span><br><span class="line">pytorch/pytorch     1.5.1-cuda10.1-cudnn7-runtime       d89e4943dd55        13 days ago         3.14GB</span><br><span class="line">nvidia/cuda         10.0-base                           841d44dd4b3c        7 months ago        110MB</span><br></pre></td></tr></table></figure>
+
+<h2 id="docker修改为国内镜像源"><a href="#docker修改为国内镜像源" class="headerlink" title="docker修改为国内镜像源"></a>docker修改为国内镜像源</h2><p>在 /etc/docker/daemon.json 文件中添加以下参数（没有该文件则新建）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &quot;registry-mirrors&quot; : [&quot;https:&#x2F;&#x2F;9cpn8tt6.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后重启服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -420,32 +446,6 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>CV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>docker拾遗</title>
-    <url>/2021/04/13/docker%E6%8B%BE%E9%81%97/</url>
-    <content><![CDATA[<h2 id="docker后台启动容器"><a href="#docker后台启动容器" class="headerlink" title="docker后台启动容器"></a>docker后台启动容器</h2><p>-d参数</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --gpus all --name pytorch_chy -itd -v /home/chengy:/workspace   pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2 /bin/bash</span><br><span class="line"></span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker ps -a</span></span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line">2c17ed69e994        505a4186e3d9        <span class="string">"/bin/bash"</span>         About an hour ago   Up About an hour                     pytorch_chy</span><br><span class="line"></span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker attach 2</span></span><br><span class="line">root@2c17ed69e994:/workspace<span class="comment"># ll</span></span><br><span class="line">total 27516</span><br><span class="line">drwxrwxrwx 3 root root     4096 Jul  2 14:22 ./</span><br><span class="line">drwxr-xr-x 1 root root     4096 Jul  2 13:18 ../</span><br><span class="line">drwxrwxr-x 8 1000 1000     4096 Jul  2 14:26 FaceMaskDetection/</span><br><span class="line">-rw-rw-r-- 1 1000 1000 28156745 Jul  2 08:48 opencv_python-4.2.0.34-cp37-cp37m-manylinux1_x86_64.whl</span><br><span class="line">-rw-rw-r-- 1 1000 1000     3676 Jul  2 08:57 sources.list</span><br></pre></td></tr></table></figure>
-
-<p>如果要正常退出不关闭容器，请按<strong>Ctrl+P+Q</strong>进行退出容器，否则容器就会变成Exited的状态</p>
-<h2 id="docker共享宿主机与镜像目录"><a href="#docker共享宿主机与镜像目录" class="headerlink" title="docker共享宿主机与镜像目录"></a>docker共享宿主机与镜像目录</h2><p>-v 参数，宿主机目录:docker镜像目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --gpus all --name pytorch_chy -itd -v &#x2F;home&#x2F;chengy:&#x2F;workspace   pytorch&#x2F;pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2 &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
-
-<h2 id="docker保存镜像"><a href="#docker保存镜像" class="headerlink" title="docker保存镜像"></a>docker保存镜像</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit 2c17ed69e994 pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2</span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker images</span></span><br><span class="line">REPOSITORY          TAG                                 IMAGE ID            CREATED             SIZE</span><br><span class="line">pytorch/pytorch     1.5.1-cuda10.1-cudnn7-runtime-cv2   bdc2cf9c30fc        15 minutes ago      3.37GB</span><br><span class="line">pytorch/pytorch     1.5.1-cuda10.1-cudnn7-runtime       d89e4943dd55        13 days ago         3.14GB</span><br><span class="line">nvidia/cuda         10.0-base                           841d44dd4b3c        7 months ago        110MB</span><br></pre></td></tr></table></figure>
-
-<h2 id="docker修改为国内镜像源"><a href="#docker修改为国内镜像源" class="headerlink" title="docker修改为国内镜像源"></a>docker修改为国内镜像源</h2><p>在 /etc/docker/daemon.json 文件中添加以下参数（没有该文件则新建）：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &quot;registry-mirrors&quot; : [&quot;https:&#x2F;&#x2F;9cpn8tt6.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>最后重启服务</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>docker</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
       </tags>
   </entry>
 </search>
