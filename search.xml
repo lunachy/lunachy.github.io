@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Pandas拾遗</title>
+    <url>/2021/04/13/Pandas%E6%8B%BE%E9%81%97/</url>
+    <content><![CDATA[<h2 id="pandas中截取一列字符串中每行字符串的一部分"><a href="#pandas中截取一列字符串中每行字符串的一部分" class="headerlink" title="pandas中截取一列字符串中每行字符串的一部分"></a>pandas中截取一列字符串中每行字符串的一部分</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[<span class="string">'col'</span>].str[<span class="number">1</span>:<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="pandas更改列名"><a href="#pandas更改列名" class="headerlink" title="pandas更改列名"></a>pandas更改列名</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df.rename(columns&#x3D;&#123;&quot;a1&quot;: &quot;a2&quot;, &quot;b1&quot;: &quot;b2&quot;&#125;, inplace&#x3D;True)</span><br></pre></td></tr></table></figure>
+
+<h2 id="pandas读取csv-xls文件时指定列的数据类型"><a href="#pandas读取csv-xls文件时指定列的数据类型" class="headerlink" title="pandas读取csv/xls文件时指定列的数据类型"></a>pandas读取csv/xls文件时指定列的数据类型</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">converters = &#123;<span class="string">"stats_date"</span>: str, <span class="string">"city_code"</span>: str, <span class="string">"call_route_cnt"</span>: int, <span class="string">"reply_route_cnt"</span>: int, <span class="string">"business_id"</span>: int&#125;</span><br><span class="line">df = pd.read_csv(csv_path, converters=converters)</span><br></pre></td></tr></table></figure>
+
+<h2 id="pandas处理某列"><a href="#pandas处理某列" class="headerlink" title="pandas处理某列"></a>pandas处理某列</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[<span class="string">"列名"</span>]=df.apply(<span class="keyword">lambda</span> x:方法名(x,入参<span class="number">2</span>),axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明：</strong></p>
+<p>1、方法名为单独的方法名，可以处理传入的x数据</p>
+<p>2、x为每一行的数据，做为方法的入参1；x中的数据可以用【x.列名】来获取</p>
+<p>3、入参2等为方法需要的其他参数，不需要可以不写</p>
+<p>4、axis=1，表示每次取一行数据进行处理，按行处理</p>
+]]></content>
+      <categories>
+        <category>Pandas</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Pandas</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo+NexT搭建个人博客</title>
-    <url>/2020/05/09/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+    <url>/2021/04/13/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p>Hexo是在Node.js框架下的一个项目，利用Node.js提供的强大功能，完成从Markdown到静态网页的转换。NexT是Hexo项目下的一个主题插件，提供可高度定制的页面外观。</p>
 <h1 id="相关环境配置"><a href="#相关环境配置" class="headerlink" title="相关环境配置"></a>相关环境配置</h1><p>下载最新<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">node.js</a>安装，运行<code>node -v</code>和<code>npm -v</code>，显示正常的版本则说明安装完毕。</p>
 <h1 id="Hexo安装及运行"><a href="#Hexo安装及运行" class="headerlink" title="Hexo安装及运行"></a>Hexo安装及运行</h1><h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
@@ -175,50 +200,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Pycharm本地连接Kudu及写入Kafka和Hive</title>
-    <url>/2020/05/09/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/</url>
-    <content><![CDATA[<h1 id="连接Apollo"><a href="#连接Apollo" class="headerlink" title="连接Apollo"></a>连接Apollo</h1><p>Apollo（阿波罗）是携程框架部门研发的开源配置管理中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyapollo</span><br><span class="line"></span><br><span class="line">client = pyapollo.ApolloClient(app_id=<span class="string">"iov-vehicle-track-point-hbase"</span>, config_server_url=<span class="string">"http://172.16.1.69:8080"</span>)</span><br><span class="line">client.start()</span><br><span class="line">print(client.get_value(<span class="string">"checkpoint"</span>))</span><br></pre></td></tr></table></figure>
-
-<h1 id="读取Kudu"><a href="#读取Kudu" class="headerlink" title="读取Kudu"></a>读取Kudu</h1><p>下载<a href="http://spark.apache.org/downloads.html" target="_blank" rel="noopener">spark</a>文件，目前所用版本为spark-2.4.5-bin-hadoop2.7.tgz，下载后解压到某一目录。</p>
-<p>当前项目点击edit configurations，</p>
-<p><img data-src="https://i.loli.net/2020/05/18/PYcX2gDoORvj5np.png" alt=""></p>
-<p>进入环境变量</p>
-<p><img data-src="https://i.loli.net/2020/05/18/jdyZLRrhgc2IGVW.png" alt=""></p>
-<p>新增三个变量</p>
-<p><img data-src="https://i.loli.net/2020/05/18/YMlvU8CWfaB7435.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PYSPARK_SUBMIT_ARGS&#x3D;--master local[2] --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.3,org.apache.kudu:kudu-spark2_2.11:1.11.1 pyspark-shell</span><br></pre></td></tr></table></figure>
-
-<p>使用–packages而不是–jars是因为涉及到很多依赖，会自动下载。</p>
-<p>打开Project Structure，Add Content Root，新增两个zip文件，路径在spark-2.4.5-bin-hadoop2.7\python\lib下</p>
-<p><img data-src="https://i.loli.net/2020/05/18/7R8N6xckY2uDfI4.png" alt=""></p>
-<p>相关python代码如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"></span><br><span class="line">spark = SparkSession \</span><br><span class="line">    .builder \</span><br><span class="line">    .appName(<span class="string">"ts_predict"</span>) \</span><br><span class="line">    .config(<span class="string">"spark.sql.execution.arrow.enabled"</span>, <span class="string">"true"</span>) \</span><br><span class="line">    .getOrCreate()</span><br><span class="line">spark.sparkContext.setLogLevel(<span class="string">'ERROR'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Running pyspark programme"</span>)</span><br><span class="line">kuduDF = spark.read.format(<span class="string">'kudu'</span>) \</span><br><span class="line">    .option(<span class="string">'kudu.master'</span>, <span class="string">"172.16.16.244:7051,172.16.16.251:7051,172.16.16.252:7051"</span>) \</span><br><span class="line">    .option(<span class="string">'kudu.table'</span>, <span class="string">"db_test.adsrt_mob_dri_route_15min"</span>) \</span><br><span class="line">    .load()</span><br><span class="line">routeDf = kuduDF.filter(<span class="string">f"substr(ds,1,8) &gt; '20200422'"</span>).cache()</span><br></pre></td></tr></table></figure>
-
-<h1 id="sparkDf写入Kafka"><a href="#sparkDf写入Kafka" class="headerlink" title="sparkDf写入Kafka"></a>sparkDf写入Kafka</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql.functions <span class="keyword">import</span> to_json, struct</span><br><span class="line">brokers = <span class="string">'172.16.19.171:9092,172.16.19.172:9092,172.16.19.173:9092'</span></span><br><span class="line">topic= xxx</span><br><span class="line">columns = [<span class="string">"stats_date"</span>, <span class="string">"city_code"</span>, <span class="string">"city_name"</span>, <span class="string">"pred_cnt"</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_kafka</span><span class="params">(df, brokers, topic, columns)</span>:</span></span><br><span class="line">    df.select(to_json(struct([df[x] <span class="keyword">for</span> x <span class="keyword">in</span> columns])).alias(<span class="string">"value"</span>)) \</span><br><span class="line">        .write.format(<span class="string">"kafka"</span>).option(<span class="string">"kafka.bootstrap.servers"</span>, brokers).option(<span class="string">"topic"</span>, topic) \</span><br><span class="line">        .save()</span><br></pre></td></tr></table></figure>
-
-<p>如果是pandas的DataFrame，则需要先转换为spark的DataFrame</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sparkDf = spark.createDataFrame(pandasDf)</span><br></pre></td></tr></table></figure>
-
-<h1 id="sparkDf写入Hive"><a href="#sparkDf写入Hive" class="headerlink" title="sparkDf写入Hive"></a>sparkDf写入Hive</h1><p>首先Hive建表</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">create table if not exists ml.t3_ml_ts_pred_call(stats_date string comment &#39;待预测时间片&#39;, pred_cnt double comment &#39;预测值&#39;, city_code string comment &#39;城市编码&#39;, city_name string comment &#39;城市名&#39;, pred_date string comment &#39;程序执行时间片&#39;) partition by (dt string comment &#39;日期&#39;)</span><br></pre></td></tr></table></figure>
-
-<p>然后写入Hive表</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sparkDf.write.format(<span class="string">"hive"</span>).partitionBy(<span class="string">"dt"</span>).mode(<span class="string">"append"</span>).saveAsTable(<span class="string">"ml.t3_ml_ts_pred_call"</span>)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Spark</category>
-      </categories>
-      <tags>
-        <tag>Pycharm</tag>
-        <tag>Apollo</tag>
-        <tag>Kudu</tag>
-        <tag>Kafka</tag>
-        <tag>Hive</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spark拾遗</title>
-    <url>/2020/06/19/Spark%E6%8B%BE%E9%81%97/</url>
+    <url>/2021/04/13/Spark%E6%8B%BE%E9%81%97/</url>
     <content><![CDATA[<h2 id="spark-overwrite分区覆盖导致全表覆盖问题"><a href="#spark-overwrite分区覆盖导致全表覆盖问题" class="headerlink" title="spark overwrite分区覆盖导致全表覆盖问题"></a>spark overwrite分区覆盖导致全表覆盖问题</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">set hive.<span class="keyword">exec</span>.dynamic.partition=true; </span><br><span class="line">set hive.<span class="keyword">exec</span>.dynamic.partition.mode=nonstrict;</span><br><span class="line">spark.conf.set(<span class="string">"spark.sql.sources.partitionOverwriteMode"</span>,<span class="string">"dynamic"</span>)</span><br><span class="line">df.write.mode(saveMode).insertInto(table)</span><br></pre></td></tr></table></figure>
 
 ]]></content>
@@ -232,7 +215,7 @@
   </entry>
   <entry>
     <title>Ubuntu相关环境问题</title>
-    <url>/2020/07/01/Ubuntu%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/</url>
+    <url>/2021/04/13/Ubuntu%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>以下所有内容均在Ubuntu18.04下</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:~<span class="comment"># cat /etc/*release</span></span><br><span class="line">DISTRIB_ID=Ubuntu</span><br><span class="line">DISTRIB_RELEASE=18.04</span><br><span class="line">DISTRIB_CODENAME=bionic</span><br><span class="line">DISTRIB_DESCRIPTION=<span class="string">"Ubuntu 18.04.4 LTS"</span></span><br><span class="line">NAME=<span class="string">"Ubuntu"</span></span><br><span class="line">VERSION=<span class="string">"18.04.4 LTS (Bionic Beaver)"</span></span><br><span class="line">ID=ubuntu</span><br><span class="line">ID_LIKE=debian</span><br><span class="line">PRETTY_NAME=<span class="string">"Ubuntu 18.04.4 LTS"</span></span><br><span class="line">VERSION_ID=<span class="string">"18.04"</span></span><br><span class="line">HOME_URL=<span class="string">"https://www.ubuntu.com/"</span></span><br><span class="line">SUPPORT_URL=<span class="string">"https://help.ubuntu.com/"</span></span><br><span class="line">BUG_REPORT_URL=<span class="string">"https://bugs.launchpad.net/ubuntu/"</span></span><br><span class="line">PRIVACY_POLICY_URL=<span class="string">"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"</span></span><br><span class="line">VERSION_CODENAME=bionic</span><br><span class="line">UBUNTU_CODENAME=bionic</span><br></pre></td></tr></table></figure>
 
@@ -289,33 +272,50 @@
       </tags>
   </entry>
   <entry>
-    <title>Pandas拾遗</title>
-    <url>/2020/05/22/Pandas%E6%8B%BE%E9%81%97/</url>
-    <content><![CDATA[<h2 id="pandas中截取一列字符串中每行字符串的一部分"><a href="#pandas中截取一列字符串中每行字符串的一部分" class="headerlink" title="pandas中截取一列字符串中每行字符串的一部分"></a>pandas中截取一列字符串中每行字符串的一部分</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[<span class="string">'col'</span>].str[<span class="number">1</span>:<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+    <title>Pycharm本地连接Kudu及写入Kafka和Hive</title>
+    <url>/2021/04/13/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/</url>
+    <content><![CDATA[<h1 id="连接Apollo"><a href="#连接Apollo" class="headerlink" title="连接Apollo"></a>连接Apollo</h1><p>Apollo（阿波罗）是携程框架部门研发的开源配置管理中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyapollo</span><br><span class="line"></span><br><span class="line">client = pyapollo.ApolloClient(app_id=<span class="string">"iov-vehicle-track-point-hbase"</span>, config_server_url=<span class="string">"http://172.16.1.69:8080"</span>)</span><br><span class="line">client.start()</span><br><span class="line">print(client.get_value(<span class="string">"checkpoint"</span>))</span><br></pre></td></tr></table></figure>
 
-<h2 id="pandas更改列名"><a href="#pandas更改列名" class="headerlink" title="pandas更改列名"></a>pandas更改列名</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df.rename(columns&#x3D;&#123;&quot;a1&quot;: &quot;a2&quot;, &quot;b1&quot;: &quot;b2&quot;&#125;, inplace&#x3D;True)</span><br></pre></td></tr></table></figure>
+<h1 id="读取Kudu"><a href="#读取Kudu" class="headerlink" title="读取Kudu"></a>读取Kudu</h1><p>下载<a href="http://spark.apache.org/downloads.html" target="_blank" rel="noopener">spark</a>文件，目前所用版本为spark-2.4.5-bin-hadoop2.7.tgz，下载后解压到某一目录。</p>
+<p>当前项目点击edit configurations，</p>
+<p><img data-src="https://i.loli.net/2020/05/18/PYcX2gDoORvj5np.png" alt=""></p>
+<p>进入环境变量</p>
+<p><img data-src="https://i.loli.net/2020/05/18/jdyZLRrhgc2IGVW.png" alt=""></p>
+<p>新增三个变量</p>
+<p><img data-src="https://i.loli.net/2020/05/18/YMlvU8CWfaB7435.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PYSPARK_SUBMIT_ARGS&#x3D;--master local[2] --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.3,org.apache.kudu:kudu-spark2_2.11:1.11.1 pyspark-shell</span><br></pre></td></tr></table></figure>
 
-<h2 id="pandas读取csv-xls文件时指定列的数据类型"><a href="#pandas读取csv-xls文件时指定列的数据类型" class="headerlink" title="pandas读取csv/xls文件时指定列的数据类型"></a>pandas读取csv/xls文件时指定列的数据类型</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">converters = &#123;<span class="string">"stats_date"</span>: str, <span class="string">"city_code"</span>: str, <span class="string">"call_route_cnt"</span>: int, <span class="string">"reply_route_cnt"</span>: int, <span class="string">"business_id"</span>: int&#125;</span><br><span class="line">df = pd.read_csv(csv_path, converters=converters)</span><br></pre></td></tr></table></figure>
+<p>使用–packages而不是–jars是因为涉及到很多依赖，会自动下载。</p>
+<p>打开Project Structure，Add Content Root，新增两个zip文件，路径在spark-2.4.5-bin-hadoop2.7\python\lib下</p>
+<p><img data-src="https://i.loli.net/2020/05/18/7R8N6xckY2uDfI4.png" alt=""></p>
+<p>相关python代码如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"></span><br><span class="line">spark = SparkSession \</span><br><span class="line">    .builder \</span><br><span class="line">    .appName(<span class="string">"ts_predict"</span>) \</span><br><span class="line">    .config(<span class="string">"spark.sql.execution.arrow.enabled"</span>, <span class="string">"true"</span>) \</span><br><span class="line">    .getOrCreate()</span><br><span class="line">spark.sparkContext.setLogLevel(<span class="string">'ERROR'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Running pyspark programme"</span>)</span><br><span class="line">kuduDF = spark.read.format(<span class="string">'kudu'</span>) \</span><br><span class="line">    .option(<span class="string">'kudu.master'</span>, <span class="string">"172.16.16.244:7051,172.16.16.251:7051,172.16.16.252:7051"</span>) \</span><br><span class="line">    .option(<span class="string">'kudu.table'</span>, <span class="string">"db_test.adsrt_mob_dri_route_15min"</span>) \</span><br><span class="line">    .load()</span><br><span class="line">routeDf = kuduDF.filter(<span class="string">f"substr(ds,1,8) &gt; '20200422'"</span>).cache()</span><br></pre></td></tr></table></figure>
 
-<h2 id="pandas处理某列"><a href="#pandas处理某列" class="headerlink" title="pandas处理某列"></a>pandas处理某列</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[<span class="string">"列名"</span>]=df.apply(<span class="keyword">lambda</span> x:方法名(x,入参<span class="number">2</span>),axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="sparkDf写入Kafka"><a href="#sparkDf写入Kafka" class="headerlink" title="sparkDf写入Kafka"></a>sparkDf写入Kafka</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql.functions <span class="keyword">import</span> to_json, struct</span><br><span class="line">brokers = <span class="string">'172.16.19.171:9092,172.16.19.172:9092,172.16.19.173:9092'</span></span><br><span class="line">topic= xxx</span><br><span class="line">columns = [<span class="string">"stats_date"</span>, <span class="string">"city_code"</span>, <span class="string">"city_name"</span>, <span class="string">"pred_cnt"</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_kafka</span><span class="params">(df, brokers, topic, columns)</span>:</span></span><br><span class="line">    df.select(to_json(struct([df[x] <span class="keyword">for</span> x <span class="keyword">in</span> columns])).alias(<span class="string">"value"</span>)) \</span><br><span class="line">        .write.format(<span class="string">"kafka"</span>).option(<span class="string">"kafka.bootstrap.servers"</span>, brokers).option(<span class="string">"topic"</span>, topic) \</span><br><span class="line">        .save()</span><br></pre></td></tr></table></figure>
 
-<p><strong>说明：</strong></p>
-<p>1、方法名为单独的方法名，可以处理传入的x数据</p>
-<p>2、x为每一行的数据，做为方法的入参1；x中的数据可以用【x.列名】来获取</p>
-<p>3、入参2等为方法需要的其他参数，不需要可以不写</p>
-<p>4、axis=1，表示每次取一行数据进行处理，按行处理</p>
-]]></content>
+<p>如果是pandas的DataFrame，则需要先转换为spark的DataFrame</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sparkDf = spark.createDataFrame(pandasDf)</span><br></pre></td></tr></table></figure>
+
+<h1 id="sparkDf写入Hive"><a href="#sparkDf写入Hive" class="headerlink" title="sparkDf写入Hive"></a>sparkDf写入Hive</h1><p>首先Hive建表</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">create table if not exists ml.t3_ml_ts_pred_call(stats_date string comment &#39;待预测时间片&#39;, pred_cnt double comment &#39;预测值&#39;, city_code string comment &#39;城市编码&#39;, city_name string comment &#39;城市名&#39;, pred_date string comment &#39;程序执行时间片&#39;) partition by (dt string comment &#39;日期&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>然后写入Hive表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sparkDf.write.format(<span class="string">"hive"</span>).partitionBy(<span class="string">"dt"</span>).mode(<span class="string">"append"</span>).saveAsTable(<span class="string">"ml.t3_ml_ts_pred_call"</span>)</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>Pandas</category>
+        <category>Spark</category>
       </categories>
       <tags>
-        <tag>Python</tag>
-        <tag>Pandas</tag>
+        <tag>Pycharm</tag>
+        <tag>Apollo</tag>
+        <tag>Kudu</tag>
+        <tag>Kafka</tag>
+        <tag>Hive</tag>
       </tags>
   </entry>
   <entry>
     <title>docker拾遗</title>
-    <url>/2020/07/02/docker%E6%8B%BE%E9%81%97/</url>
+    <url>/2021/04/13/docker%E6%8B%BE%E9%81%97/</url>
     <content><![CDATA[<h2 id="docker后台启动容器"><a href="#docker后台启动容器" class="headerlink" title="docker后台启动容器"></a>docker后台启动容器</h2><p>-d参数</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --gpus all --name pytorch_chy -itd -v /home/chengy:/workspace   pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2 /bin/bash</span><br><span class="line"></span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker ps -a</span></span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line">2c17ed69e994        505a4186e3d9        <span class="string">"/bin/bash"</span>         About an hour ago   Up About an hour                     pytorch_chy</span><br><span class="line"></span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker attach 2</span></span><br><span class="line">root@2c17ed69e994:/workspace<span class="comment"># ll</span></span><br><span class="line">total 27516</span><br><span class="line">drwxrwxrwx 3 root root     4096 Jul  2 14:22 ./</span><br><span class="line">drwxr-xr-x 1 root root     4096 Jul  2 13:18 ../</span><br><span class="line">drwxrwxr-x 8 1000 1000     4096 Jul  2 14:26 FaceMaskDetection/</span><br><span class="line">-rw-rw-r-- 1 1000 1000 28156745 Jul  2 08:48 opencv_python-4.2.0.34-cp37-cp37m-manylinux1_x86_64.whl</span><br><span class="line">-rw-rw-r-- 1 1000 1000     3676 Jul  2 08:57 sources.list</span><br></pre></td></tr></table></figure>
 
@@ -324,6 +324,40 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --gpus all --name pytorch_chy -itd -v &#x2F;home&#x2F;chengy:&#x2F;workspace   pytorch&#x2F;pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2 &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
 
 <h2 id="docker保存镜像"><a href="#docker保存镜像" class="headerlink" title="docker保存镜像"></a>docker保存镜像</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit 2c17ed69e994 pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2</span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker images</span></span><br><span class="line">REPOSITORY          TAG                                 IMAGE ID            CREATED             SIZE</span><br><span class="line">pytorch/pytorch     1.5.1-cuda10.1-cudnn7-runtime-cv2   bdc2cf9c30fc        15 minutes ago      3.37GB</span><br><span class="line">pytorch/pytorch     1.5.1-cuda10.1-cudnn7-runtime       d89e4943dd55        13 days ago         3.14GB</span><br><span class="line">nvidia/cuda         10.0-base                           841d44dd4b3c        7 months ago        110MB</span><br></pre></td></tr></table></figure>
+
+<h2 id="docker修改为国内镜像源"><a href="#docker修改为国内镜像源" class="headerlink" title="docker修改为国内镜像源"></a>docker修改为国内镜像源</h2><p>在 /etc/docker/daemon.json 文件中添加以下参数（没有该文件则新建）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &quot;registry-mirrors&quot; : [&quot;https:&#x2F;&#x2F;9cpn8tt6.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后重启服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>testdocker拾遗1</title>
+    <url>/2021/04/13/testdocker%E6%8B%BE%E9%81%97/</url>
+    <content><![CDATA[<h2 id="tetdocker后台启动容器"><a href="#tetdocker后台启动容器" class="headerlink" title="tetdocker后台启动容器"></a>tetdocker后台启动容器</h2><p>-d参数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --gpus all --name pytorch_chy -itd -v /home/chengy:/workspace   pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2 /bin/bash</span><br><span class="line"></span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker ps -a</span></span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line">2c17ed69e994        505a4186e3d9        <span class="string">"/bin/bash"</span>         About an hour ago   Up About an hour                     pytorch_chy</span><br><span class="line"></span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker attach 2</span></span><br><span class="line">root@2c17ed69e994:/workspace<span class="comment"># ll</span></span><br><span class="line">total 27516</span><br><span class="line">drwxrwxrwx 3 root root     4096 Jul  2 14:22 ./</span><br><span class="line">drwxr-xr-x 1 root root     4096 Jul  2 13:18 ../</span><br><span class="line">drwxrwxr-x 8 1000 1000     4096 Jul  2 14:26 FaceMaskDetection/</span><br><span class="line">-rw-rw-r-- 1 1000 1000 28156745 Jul  2 08:48 opencv_python-4.2.0.34-cp37-cp37m-manylinux1_x86_64.whl</span><br><span class="line">-rw-rw-r-- 1 1000 1000     3676 Jul  2 08:57 sources.list</span><br></pre></td></tr></table></figure>
+
+<p>如果要正常退出不关闭容器，请按<strong>Ctrl+P+Q</strong>进行退出容器，否则容器就会变成Exited的状态</p>
+<h2 id="docker共享宿主机与镜像目录"><a href="#docker共享宿主机与镜像目录" class="headerlink" title="docker共享宿主机与镜像目录"></a>docker共享宿主机与镜像目录</h2><p>-v 参数，宿主机目录:docker镜像目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --gpus all --name pytorch_chy -itd -v &#x2F;home&#x2F;chengy:&#x2F;workspace   pytorch&#x2F;pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2 &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
+
+<h2 id="docker保存镜像"><a href="#docker保存镜像" class="headerlink" title="docker保存镜像"></a>docker保存镜像</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit 2c17ed69e994 pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2</span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker images</span></span><br><span class="line">REPOSITORY          TAG                                 IMAGE ID            CREATED             SIZE</span><br><span class="line">pytorch/pytorch     1.5.1-cuda10.1-cudnn7-runtime-cv2   bdc2cf9c30fc        15 minutes ago      3.37GB</span><br><span class="line">pytorch/pytorch     1.5.1-cuda10.1-cudnn7-runtime       d89e4943dd55        13 days ago         3.14GB</span><br><span class="line">nvidia/cuda         10.0-base                           841d44dd4b3c        7 months ago        110MB</span><br></pre></td></tr></table></figure>
+
+<h2 id="docker修改为国内镜像源"><a href="#docker修改为国内镜像源" class="headerlink" title="docker修改为国内镜像源"></a>docker修改为国内镜像源</h2><p>在 /etc/docker/daemon.json 文件中添加以下参数（没有该文件则新建）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &quot;registry-mirrors&quot; : [&quot;https:&#x2F;&#x2F;9cpn8tt6.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后重启服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://i.loli.net/2021/04/13/asTcUdVeYnrMBCX.jpg" alt="1"></p>
 ]]></content>
       <categories>
         <category>docker</category>

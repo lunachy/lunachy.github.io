@@ -185,7 +185,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/02/docker%E6%8B%BE%E9%81%97/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/13/testdocker%E6%8B%BE%E9%81%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/love.jpg">
@@ -199,7 +199,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/02/docker%E6%8B%BE%E9%81%97/" class="post-title-link" itemprop="url">docker拾遗</a>
+            <a href="/2021/04/13/testdocker%E6%8B%BE%E9%81%97/" class="post-title-link" itemprop="url">testdocker拾遗1</a>
         </h2>
 
         <div class="post-meta">
@@ -209,15 +209,8 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-07-02 22:30:59" itemprop="dateCreated datePublished" datetime="2020-07-02T22:30:59+08:00">2020-07-02</time>
+              <time title="创建时间：2021-04-13 20:43:43" itemprop="dateCreated datePublished" datetime="2021-04-13T20:43:43+08:00">2021-04-13</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-03 09:50:15" itemprop="dateModified" datetime="2020-07-03T09:50:15+08:00">2020-07-03</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -229,7 +222,7 @@
             </span>
 
           
-            <span id="/2020/07/02/docker%E6%8B%BE%E9%81%97/" class="post-meta-item leancloud_visitors" data-flag-title="docker拾遗" title="阅读次数">
+            <span id="/2021/04/13/testdocker%E6%8B%BE%E9%81%97/" class="post-meta-item leancloud_visitors" data-flag-title="testdocker拾遗1" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -244,8 +237,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/07/02/docker%E6%8B%BE%E9%81%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/02/docker%E6%8B%BE%E9%81%97/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/04/13/testdocker%E6%8B%BE%E9%81%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/13/testdocker%E6%8B%BE%E9%81%97/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -255,7 +248,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -274,7 +267,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="docker后台启动容器"><a href="#docker后台启动容器" class="headerlink" title="docker后台启动容器"></a>docker后台启动容器</h2><p>-d参数</p>
+          <h2 id="tetdocker后台启动容器"><a href="#tetdocker后台启动容器" class="headerlink" title="tetdocker后台启动容器"></a>tetdocker后台启动容器</h2><p>-d参数</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">docker run --gpus all --name pytorch_chy -itd -v /home/chengy:/workspace   pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2 /bin/bash</span><br><span class="line"></span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker ps -a</span></span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line">2c17ed69e994        505a4186e3d9        <span class="string">"/bin/bash"</span>         About an hour ago   Up About an hour                     pytorch_chy</span><br><span class="line"></span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker attach 2</span></span><br><span class="line">root@2c17ed69e994:/workspace<span class="comment"># ll</span></span><br><span class="line">total 27516</span><br><span class="line">drwxrwxrwx 3 root root     4096 Jul  2 14:22 ./</span><br><span class="line">drwxr-xr-x 1 root root     4096 Jul  2 13:18 ../</span><br><span class="line">drwxrwxr-x 8 1000 1000     4096 Jul  2 14:26 FaceMaskDetection/</span><br><span class="line">-rw-rw-r-- 1 1000 1000 28156745 Jul  2 08:48 opencv_python-4.2.0.34-cp37-cp37m-manylinux1_x86_64.whl</span><br><span class="line">-rw-rw-r-- 1 1000 1000     3676 Jul  2 08:57 sources.list</span><br></pre></td></tr></table></figure>
 
 <p>如果要正常退出不关闭容器，请按<strong>Ctrl+P+Q</strong>进行退出容器，否则容器就会变成Exited的状态</p>
@@ -283,9 +276,10 @@
 
 <h2 id="docker保存镜像"><a href="#docker保存镜像" class="headerlink" title="docker保存镜像"></a>docker保存镜像</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker commit 2c17ed69e994 pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2</span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker images</span></span><br><span class="line">REPOSITORY          TAG                                 IMAGE ID            CREATED             SIZE</span><br><span class="line">pytorch/pytorch     1.5.1-cuda10.1-cudnn7-runtime-cv2   bdc2cf9c30fc        15 minutes ago      3.37GB</span><br><span class="line">pytorch/pytorch     1.5.1-cuda10.1-cudnn7-runtime       d89e4943dd55        13 days ago         3.14GB</span><br><span class="line">nvidia/cuda         10.0-base                           841d44dd4b3c        7 months ago        110MB</span><br></pre></td></tr></table></figure>
 
+<h2 id="docker修改为国内镜像源"><a href="#docker修改为国内镜像源" class="headerlink" title="docker修改为国内镜像源"></a>docker修改为国内镜像源</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/07/02/docker%E6%8B%BE%E9%81%97/#more" rel="contents">
+              <a class="btn" href="/2021/04/13/testdocker%E6%8B%BE%E9%81%97/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -309,7 +303,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/01/Ubuntu%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/13/Ubuntu%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/love.jpg">
@@ -323,7 +317,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/01/Ubuntu%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Ubuntu相关环境问题</a>
+            <a href="/2021/04/13/Ubuntu%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Ubuntu相关环境问题</a>
         </h2>
 
         <div class="post-meta">
@@ -333,7 +327,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-07-01 09:36:05" itemprop="dateCreated datePublished" datetime="2020-07-01T09:36:05+08:00">2020-07-01</time>
+              <time title="创建时间：2021-04-13 19:04:17" itemprop="dateCreated datePublished" datetime="2021-04-13T19:04:17+08:00">2021-04-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -353,7 +347,7 @@
             </span>
 
           
-            <span id="/2020/07/01/Ubuntu%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu相关环境问题" title="阅读次数">
+            <span id="/2021/04/13/Ubuntu%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu相关环境问题" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -368,8 +362,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/07/01/Ubuntu%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/01/Ubuntu%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/04/13/Ubuntu%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/13/Ubuntu%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -411,7 +405,7 @@
 <h4 id="163源"><a href="#163源" class="headerlink" title="163源"></a>163源</h4>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/07/01/Ubuntu%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/#more" rel="contents">
+              <a class="btn" href="/2021/04/13/Ubuntu%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -435,7 +429,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/19/Spark%E6%8B%BE%E9%81%97/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/13/Spark%E6%8B%BE%E9%81%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/love.jpg">
@@ -449,7 +443,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/06/19/Spark%E6%8B%BE%E9%81%97/" class="post-title-link" itemprop="url">Spark拾遗</a>
+            <a href="/2021/04/13/Spark%E6%8B%BE%E9%81%97/" class="post-title-link" itemprop="url">Spark拾遗</a>
         </h2>
 
         <div class="post-meta">
@@ -458,10 +452,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-06-19 10:40:14 / 修改时间：10:41:57" itemprop="dateCreated datePublished" datetime="2020-06-19T10:40:14+08:00">2020-06-19</time>
+              <time title="创建时间：2021-04-13 19:04:17" itemprop="dateCreated datePublished" datetime="2021-04-13T19:04:17+08:00">2021-04-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-19 10:41:57" itemprop="dateModified" datetime="2020-06-19T10:41:57+08:00">2020-06-19</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -473,7 +473,7 @@
             </span>
 
           
-            <span id="/2020/06/19/Spark%E6%8B%BE%E9%81%97/" class="post-meta-item leancloud_visitors" data-flag-title="Spark拾遗" title="阅读次数">
+            <span id="/2021/04/13/Spark%E6%8B%BE%E9%81%97/" class="post-meta-item leancloud_visitors" data-flag-title="Spark拾遗" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -488,8 +488,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/06/19/Spark%E6%8B%BE%E9%81%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/19/Spark%E6%8B%BE%E9%81%97/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/04/13/Spark%E6%8B%BE%E9%81%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/13/Spark%E6%8B%BE%E9%81%97/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -523,7 +523,7 @@
 
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/06/19/Spark%E6%8B%BE%E9%81%97/#more" rel="contents">
+              <a class="btn" href="/2021/04/13/Spark%E6%8B%BE%E9%81%97/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -547,7 +547,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/22/Pandas%E6%8B%BE%E9%81%97/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/13/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/love.jpg">
@@ -561,7 +561,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/22/Pandas%E6%8B%BE%E9%81%97/" class="post-title-link" itemprop="url">Pandas拾遗</a>
+            <a href="/2021/04/13/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/" class="post-title-link" itemprop="url">Pycharm本地连接Kudu及写入Kafka和Hive</a>
         </h2>
 
         <div class="post-meta">
@@ -571,7 +571,131 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-05-22 11:39:11" itemprop="dateCreated datePublished" datetime="2020-05-22T11:39:11+08:00">2020-05-22</time>
+              <time title="创建时间：2021-04-13 19:04:17" itemprop="dateCreated datePublished" datetime="2021-04-13T19:04:17+08:00">2021-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-18 17:36:10" itemprop="dateModified" datetime="2020-05-18T17:36:10+08:00">2020-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/04/13/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/" class="post-meta-item leancloud_visitors" data-flag-title="Pycharm本地连接Kudu及写入Kafka和Hive" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/13/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/13/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="连接Apollo"><a href="#连接Apollo" class="headerlink" title="连接Apollo"></a>连接Apollo</h1><p>Apollo（阿波罗）是携程框架部门研发的开源配置管理中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyapollo</span><br><span class="line"></span><br><span class="line">client = pyapollo.ApolloClient(app_id=<span class="string">"iov-vehicle-track-point-hbase"</span>, config_server_url=<span class="string">"http://172.16.1.69:8080"</span>)</span><br><span class="line">client.start()</span><br><span class="line">print(client.get_value(<span class="string">"checkpoint"</span>))</span><br></pre></td></tr></table></figure>
+
+<h1 id="读取Kudu"><a href="#读取Kudu" class="headerlink" title="读取Kudu"></a>读取Kudu</h1><p>下载<a href="http://spark.apache.org/downloads.html" target="_blank" rel="noopener">spark</a>文件，目前所用版本为spark-2.4.5-bin-hadoop2.7.tgz，下载后解压到某一目录。</p>
+<p>当前项目点击edit configurations，</p>
+<p><img data-src="https://i.loli.net/2020/05/18/PYcX2gDoORvj5np.png" alt></p>
+<p>进入环境变量</p>
+<p><img data-src="https://i.loli.net/2020/05/18/jdyZLRrhgc2IGVW.png" alt></p>
+<p>新增三个变量</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/13/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/13/Pandas%E6%8B%BE%E9%81%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/love.jpg">
+      <meta itemprop="name" content="Chy">
+      <meta itemprop="description" content="朝花夕拾 聊以记之">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chy's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/13/Pandas%E6%8B%BE%E9%81%97/" class="post-title-link" itemprop="url">Pandas拾遗</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-13 19:04:17" itemprop="dateCreated datePublished" datetime="2021-04-13T19:04:17+08:00">2021-04-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -591,7 +715,7 @@
             </span>
 
           
-            <span id="/2020/05/22/Pandas%E6%8B%BE%E9%81%97/" class="post-meta-item leancloud_visitors" data-flag-title="Pandas拾遗" title="阅读次数">
+            <span id="/2021/04/13/Pandas%E6%8B%BE%E9%81%97/" class="post-meta-item leancloud_visitors" data-flag-title="Pandas拾遗" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -606,8 +730,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/05/22/Pandas%E6%8B%BE%E9%81%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/22/Pandas%E6%8B%BE%E9%81%97/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/04/13/Pandas%E6%8B%BE%E9%81%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/13/Pandas%E6%8B%BE%E9%81%97/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -648,7 +772,7 @@
 <p>1、方法名为单独的方法名，可以处理传入的x数据</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/05/22/Pandas%E6%8B%BE%E9%81%97/#more" rel="contents">
+              <a class="btn" href="/2021/04/13/Pandas%E6%8B%BE%E9%81%97/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -672,7 +796,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/13/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/love.jpg">
@@ -686,7 +810,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/09/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/" class="post-title-link" itemprop="url">Pycharm本地连接Kudu及写入Kafka和Hive</a>
+            <a href="/2021/04/13/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">Hexo+NexT搭建个人博客</a>
         </h2>
 
         <div class="post-meta">
@@ -696,131 +820,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-05-09 11:42:45" itemprop="dateCreated datePublished" datetime="2020-05-09T11:42:45+08:00">2020-05-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-18 17:36:10" itemprop="dateModified" datetime="2020-05-18T17:36:10+08:00">2020-05-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/05/09/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/" class="post-meta-item leancloud_visitors" data-flag-title="Pycharm本地连接Kudu及写入Kafka和Hive" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/05/09/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/09/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="连接Apollo"><a href="#连接Apollo" class="headerlink" title="连接Apollo"></a>连接Apollo</h1><p>Apollo（阿波罗）是携程框架部门研发的开源配置管理中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyapollo</span><br><span class="line"></span><br><span class="line">client = pyapollo.ApolloClient(app_id=<span class="string">"iov-vehicle-track-point-hbase"</span>, config_server_url=<span class="string">"http://172.16.1.69:8080"</span>)</span><br><span class="line">client.start()</span><br><span class="line">print(client.get_value(<span class="string">"checkpoint"</span>))</span><br></pre></td></tr></table></figure>
-
-<h1 id="读取Kudu"><a href="#读取Kudu" class="headerlink" title="读取Kudu"></a>读取Kudu</h1><p>下载<a href="http://spark.apache.org/downloads.html" target="_blank" rel="noopener">spark</a>文件，目前所用版本为spark-2.4.5-bin-hadoop2.7.tgz，下载后解压到某一目录。</p>
-<p>当前项目点击edit configurations，</p>
-<p><img data-src="https://i.loli.net/2020/05/18/PYcX2gDoORvj5np.png" alt></p>
-<p>进入环境变量</p>
-<p><img data-src="https://i.loli.net/2020/05/18/jdyZLRrhgc2IGVW.png" alt></p>
-<p>新增三个变量</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/09/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/love.jpg">
-      <meta itemprop="name" content="Chy">
-      <meta itemprop="description" content="朝花夕拾 聊以记之">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chy's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/09/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">Hexo+NexT搭建个人博客</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-09 10:02:23" itemprop="dateCreated datePublished" datetime="2020-05-09T10:02:23+08:00">2020-05-09</time>
+              <time title="创建时间：2021-04-13 19:04:17" itemprop="dateCreated datePublished" datetime="2021-04-13T19:04:17+08:00">2021-04-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -840,7 +840,7 @@
             </span>
 
           
-            <span id="/2020/05/09/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo+NexT搭建个人博客" title="阅读次数">
+            <span id="/2021/04/13/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo+NexT搭建个人博客" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -855,8 +855,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/05/09/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/09/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/04/13/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/13/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -896,7 +896,132 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">hexo-cli: 3.1.0</span><br><span class="line">os: Windows_NT 10.0.18362 win32 x64</span><br><span class="line">node: 14.0.0</span><br><span class="line">v8: 8.1.307.30-node.30</span><br><span class="line">uv: 1.37.0</span><br><span class="line">zlib: 1.2.11</span><br><span class="line">brotli: 1.0.7</span><br><span class="line">ares: 1.16.0</span><br><span class="line">modules: 83</span><br><span class="line">nghttp2: 1.40.0</span><br><span class="line">napi: 6</span><br><span class="line">llhttp: 2.0.4</span><br><span class="line">openssl: 1.1.1f</span><br><span class="line">cldr: 36.1</span><br><span class="line">icu: 66.1</span><br><span class="line">tz: 2019c</span><br><span class="line">unicode: 13.0</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/05/09/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more" rel="contents">
+              <a class="btn" href="/2021/04/13/Hexo+NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/13/docker%E6%8B%BE%E9%81%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/love.jpg">
+      <meta itemprop="name" content="Chy">
+      <meta itemprop="description" content="朝花夕拾 聊以记之">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chy's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/13/docker%E6%8B%BE%E9%81%97/" class="post-title-link" itemprop="url">docker拾遗</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-13 19:04:17" itemprop="dateCreated datePublished" datetime="2021-04-13T19:04:17+08:00">2021-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-08 15:05:14" itemprop="dateModified" datetime="2020-07-08T15:05:14+08:00">2020-07-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/04/13/docker%E6%8B%BE%E9%81%97/" class="post-meta-item leancloud_visitors" data-flag-title="docker拾遗" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/13/docker%E6%8B%BE%E9%81%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/13/docker%E6%8B%BE%E9%81%97/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="docker后台启动容器"><a href="#docker后台启动容器" class="headerlink" title="docker后台启动容器"></a>docker后台启动容器</h2><p>-d参数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">docker run --gpus all --name pytorch_chy -itd -v /home/chengy:/workspace   pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2 /bin/bash</span><br><span class="line"></span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker ps -a</span></span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line">2c17ed69e994        505a4186e3d9        <span class="string">"/bin/bash"</span>         About an hour ago   Up About an hour                     pytorch_chy</span><br><span class="line"></span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker attach 2</span></span><br><span class="line">root@2c17ed69e994:/workspace<span class="comment"># ll</span></span><br><span class="line">total 27516</span><br><span class="line">drwxrwxrwx 3 root root     4096 Jul  2 14:22 ./</span><br><span class="line">drwxr-xr-x 1 root root     4096 Jul  2 13:18 ../</span><br><span class="line">drwxrwxr-x 8 1000 1000     4096 Jul  2 14:26 FaceMaskDetection/</span><br><span class="line">-rw-rw-r-- 1 1000 1000 28156745 Jul  2 08:48 opencv_python-4.2.0.34-cp37-cp37m-manylinux1_x86_64.whl</span><br><span class="line">-rw-rw-r-- 1 1000 1000     3676 Jul  2 08:57 sources.list</span><br></pre></td></tr></table></figure>
+
+<p>如果要正常退出不关闭容器，请按<strong>Ctrl+P+Q</strong>进行退出容器，否则容器就会变成Exited的状态</p>
+<h2 id="docker共享宿主机与镜像目录"><a href="#docker共享宿主机与镜像目录" class="headerlink" title="docker共享宿主机与镜像目录"></a>docker共享宿主机与镜像目录</h2><p>-v 参数，宿主机目录:docker镜像目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --gpus all --name pytorch_chy -itd -v &#x2F;home&#x2F;chengy:&#x2F;workspace   pytorch&#x2F;pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2 &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
+
+<h2 id="docker保存镜像"><a href="#docker保存镜像" class="headerlink" title="docker保存镜像"></a>docker保存镜像</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker commit 2c17ed69e994 pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2</span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker images</span></span><br><span class="line">REPOSITORY          TAG                                 IMAGE ID            CREATED             SIZE</span><br><span class="line">pytorch/pytorch     1.5.1-cuda10.1-cudnn7-runtime-cv2   bdc2cf9c30fc        15 minutes ago      3.37GB</span><br><span class="line">pytorch/pytorch     1.5.1-cuda10.1-cudnn7-runtime       d89e4943dd55        13 days ago         3.14GB</span><br><span class="line">nvidia/cuda         10.0-base                           841d44dd4b3c        7 months ago        110MB</span><br></pre></td></tr></table></figure>
+
+<h2 id="docker修改为国内镜像源"><a href="#docker修改为国内镜像源" class="headerlink" title="docker修改为国内镜像源"></a>docker修改为国内镜像源</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/13/docker%E6%8B%BE%E9%81%97/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -984,7 +1109,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1036,7 +1161,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1046,13 +1171,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">19k</span>
+    <span title="站点总字数">21k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">17 分钟</span>
+    <span title="站点阅读时长">19 分钟</span>
 </div>
     <!-- 网站运行时间的设置 -->
     <span id="timeDate">载入天数...</span>
