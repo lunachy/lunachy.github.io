@@ -185,7 +185,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/13/testdocker%E6%8B%BE%E9%81%97/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/14/Jetbrains%E6%BF%80%E6%B4%BB%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/love.jpg">
@@ -199,7 +199,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/13/testdocker%E6%8B%BE%E9%81%97/" class="post-title-link" itemprop="url">testdocker拾遗1</a>
+            <a href="/2021/04/14/Jetbrains%E6%BF%80%E6%B4%BB%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Jetbrains激活及相关问题</a>
         </h2>
 
         <div class="post-meta">
@@ -209,7 +209,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-13 20:43:43" itemprop="dateCreated datePublished" datetime="2021-04-13T20:43:43+08:00">2021-04-13</time>
+              <time title="创建时间：2021-04-14 01:19:12" itemprop="dateCreated datePublished" datetime="2021-04-14T01:19:12+08:00">2021-04-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -217,12 +217,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+                  <a href="/categories/Jetbrains/" itemprop="url" rel="index"><span itemprop="name">Jetbrains</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/04/13/testdocker%E6%8B%BE%E9%81%97/" class="post-meta-item leancloud_visitors" data-flag-title="testdocker拾遗1" title="阅读次数">
+            <span id="/2021/04/14/Jetbrains%E6%BF%80%E6%B4%BB%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="Jetbrains激活及相关问题" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -237,8 +237,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/04/13/testdocker%E6%8B%BE%E9%81%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/13/testdocker%E6%8B%BE%E9%81%97/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/04/14/Jetbrains%E6%BF%80%E6%B4%BB%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/14/Jetbrains%E6%BF%80%E6%B4%BB%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,14 +248,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -267,19 +267,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="tetdocker后台启动容器"><a href="#tetdocker后台启动容器" class="headerlink" title="tetdocker后台启动容器"></a>tetdocker后台启动容器</h2><p>-d参数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">docker run --gpus all --name pytorch_chy -itd -v /home/chengy:/workspace   pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2 /bin/bash</span><br><span class="line"></span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker ps -a</span></span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line">2c17ed69e994        505a4186e3d9        <span class="string">"/bin/bash"</span>         About an hour ago   Up About an hour                     pytorch_chy</span><br><span class="line"></span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker attach 2</span></span><br><span class="line">root@2c17ed69e994:/workspace<span class="comment"># ll</span></span><br><span class="line">total 27516</span><br><span class="line">drwxrwxrwx 3 root root     4096 Jul  2 14:22 ./</span><br><span class="line">drwxr-xr-x 1 root root     4096 Jul  2 13:18 ../</span><br><span class="line">drwxrwxr-x 8 1000 1000     4096 Jul  2 14:26 FaceMaskDetection/</span><br><span class="line">-rw-rw-r-- 1 1000 1000 28156745 Jul  2 08:48 opencv_python-4.2.0.34-cp37-cp37m-manylinux1_x86_64.whl</span><br><span class="line">-rw-rw-r-- 1 1000 1000     3676 Jul  2 08:57 sources.list</span><br></pre></td></tr></table></figure>
-
-<p>如果要正常退出不关闭容器，请按<strong>Ctrl+P+Q</strong>进行退出容器，否则容器就会变成Exited的状态</p>
-<h2 id="docker共享宿主机与镜像目录"><a href="#docker共享宿主机与镜像目录" class="headerlink" title="docker共享宿主机与镜像目录"></a>docker共享宿主机与镜像目录</h2><p>-v 参数，宿主机目录:docker镜像目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --gpus all --name pytorch_chy -itd -v &#x2F;home&#x2F;chengy:&#x2F;workspace   pytorch&#x2F;pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2 &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
-
-<h2 id="docker保存镜像"><a href="#docker保存镜像" class="headerlink" title="docker保存镜像"></a>docker保存镜像</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker commit 2c17ed69e994 pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime-cv2</span><br><span class="line">root@t3-local-alhzfz-ecs-dispatchingbu-ai-training-01:/home/chengy/FaceMaskDetection<span class="comment"># docker images</span></span><br><span class="line">REPOSITORY          TAG                                 IMAGE ID            CREATED             SIZE</span><br><span class="line">pytorch/pytorch     1.5.1-cuda10.1-cudnn7-runtime-cv2   bdc2cf9c30fc        15 minutes ago      3.37GB</span><br><span class="line">pytorch/pytorch     1.5.1-cuda10.1-cudnn7-runtime       d89e4943dd55        13 days ago         3.14GB</span><br><span class="line">nvidia/cuda         10.0-base                           841d44dd4b3c        7 months ago        110MB</span><br></pre></td></tr></table></figure>
-
-<h2 id="docker修改为国内镜像源"><a href="#docker修改为国内镜像源" class="headerlink" title="docker修改为国内镜像源"></a>docker修改为国内镜像源</h2>
+          <h1 id="激活报错如何解决"><a href="#激活报错如何解决" class="headerlink" title="激活报错如何解决"></a>激活报错如何解决</h1><h2 id="Certificate-used-to-sign-the-license-is-not-signed-by-Jetbrains-root-certificate"><a href="#Certificate-used-to-sign-the-license-is-not-signed-by-Jetbrains-root-certificate" class="headerlink" title="Certificate used to sign the license is not signed by Jetbrains root certificate"></a>Certificate used to sign the license is not signed by Jetbrains root certificate</h2><p>软件用Jar包破解过，解决方法如下</p>
+<ol>
+<li><p>在软件菜单点击<strong>Help –&gt; Edit Custom VM Options</strong>（如无法打开菜单，请点击试用30天，如试用已结束可以直接修改xxx.vmoptions文件（右键记事本打开，修改后保存关闭），一般在软件安装目录的config文件夹）<br>删除所有以 <strong>-javaagent:xxx</strong> 开头的行</p>
+</li>
+<li><p>检查<strong>hosts</strong>文件，右键记事本打开，删除所有出现<strong>jetbrains</strong>的行，然后保存关闭</p>
+<p>windows的hosts文件位于：C:/Windows/System32/Drivers/etc/hosts<br>linux或mac的hosts文件位于：/etc/hosts</p>
+</li>
+<li><p>重启软件输入账号密码即可</p>
+</li>
+</ol>
+<h2 id="Jetbrains-Account-connection-error"><a href="#Jetbrains-Account-connection-error" class="headerlink" title="Jetbrains Account connection error"></a>Jetbrains Account connection error</h2><p><img data-src="C:/Users/chy/AppData/Roaming/Typora/typora-user-images/image-20210413231615716.png" alt="image-20210413231615716"></p>
+<ol>
+<li><p>检查hosts文件，右键记事本打开，删除所有出现jetbrains的行，然后保存关闭</p>
+<p>windows的hosts文件位于：C:/Windows/System32/Drivers/etc/hosts<br>linux或mac的hosts文件位于：/etc/hosts</p>
+</li>
+<li><p>重启软件输入账号密码即可</p>
+</li>
+<li><p>如果仍不能正常激活，请参考下<a href="https://blog.csdn.net/axiebuzhen/article/details/106817066" target="_blank" rel="noopener">https://blog.csdn.net/axiebuzhen/article/details/106817066</a></p>
+</li>
+</ol>
+<h2 id="Authorization-failed-Wrong-username-or-password"><a href="#Authorization-failed-Wrong-username-or-password" class="headerlink" title="Authorization failed: Wrong username or password"></a>Authorization failed: Wrong username or password</h2><ol>
+<li><p>打开<a href="https://account.jetbrains.com/login" target="_blank" rel="noopener">官网登陆页面</a>，输入账号密码点击Sign In，确认下是否能登陆成功，如果可以登陆成功且账号有授权，则账号无问题，如果登陆不成功，及时和客服反馈。</p>
+</li>
+<li><p>检查下账号密码是否输入错误，使用复制粘贴的方式，避免输入错误。</p>
+</li>
+<li><p>如果是点击激活要等好久才提示用户名或密码错误，则可能是网路问题，建议开手机热点或重启试试。</p>
+</li>
+</ol>
+<h1 id="成品账号如何激活"><a href="#成品账号如何激活" class="headerlink" title="成品账号如何激活"></a>成品账号如何激活</h1>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/04/13/testdocker%E6%8B%BE%E9%81%97/#more" rel="contents">
+              <a class="btn" href="/2021/04/14/Jetbrains%E6%BF%80%E6%B4%BB%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1116,13 +1135,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
