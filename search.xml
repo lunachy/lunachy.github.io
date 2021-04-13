@@ -175,7 +175,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Jetbrains激活及相关问题</title>
+    <title>Jetbrains Activate</title>
     <url>/2021/04/14/Jetbrains%E6%BF%80%E6%B4%BB%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="激活报错如何解决"><a href="#激活报错如何解决" class="headerlink" title="激活报错如何解决"></a>激活报错如何解决</h1><h2 id="Certificate-used-to-sign-the-license-is-not-signed-by-Jetbrains-root-certificate"><a href="#Certificate-used-to-sign-the-license-is-not-signed-by-Jetbrains-root-certificate" class="headerlink" title="Certificate used to sign the license is not signed by Jetbrains root certificate"></a>Certificate used to sign the license is not signed by Jetbrains root certificate</h2><p>软件用Jar包破解过，解决方法如下</p>
 <ol>
@@ -287,6 +287,45 @@
       </tags>
   </entry>
   <entry>
+    <title>Pandas拾遗</title>
+    <url>/2021/04/13/Pandas%E6%8B%BE%E9%81%97/</url>
+    <content><![CDATA[<h2 id="pandas中截取一列字符串中每行字符串的一部分"><a href="#pandas中截取一列字符串中每行字符串的一部分" class="headerlink" title="pandas中截取一列字符串中每行字符串的一部分"></a>pandas中截取一列字符串中每行字符串的一部分</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[<span class="string">'col'</span>].str[<span class="number">1</span>:<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="pandas更改列名"><a href="#pandas更改列名" class="headerlink" title="pandas更改列名"></a>pandas更改列名</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df.rename(columns&#x3D;&#123;&quot;a1&quot;: &quot;a2&quot;, &quot;b1&quot;: &quot;b2&quot;&#125;, inplace&#x3D;True)</span><br></pre></td></tr></table></figure>
+
+<h2 id="pandas读取csv-xls文件时指定列的数据类型"><a href="#pandas读取csv-xls文件时指定列的数据类型" class="headerlink" title="pandas读取csv/xls文件时指定列的数据类型"></a>pandas读取csv/xls文件时指定列的数据类型</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">converters = &#123;<span class="string">"stats_date"</span>: str, <span class="string">"city_code"</span>: str, <span class="string">"call_route_cnt"</span>: int, <span class="string">"reply_route_cnt"</span>: int, <span class="string">"business_id"</span>: int&#125;</span><br><span class="line">df = pd.read_csv(csv_path, converters=converters)</span><br></pre></td></tr></table></figure>
+
+<h2 id="pandas处理某列"><a href="#pandas处理某列" class="headerlink" title="pandas处理某列"></a>pandas处理某列</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[<span class="string">"列名"</span>]=df.apply(<span class="keyword">lambda</span> x:方法名(x,入参<span class="number">2</span>),axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明：</strong></p>
+<p>1、方法名为单独的方法名，可以处理传入的x数据</p>
+<p>2、x为每一行的数据，做为方法的入参1；x中的数据可以用【x.列名】来获取</p>
+<p>3、入参2等为方法需要的其他参数，不需要可以不写</p>
+<p>4、axis=1，表示每次取一行数据进行处理，按行处理</p>
+]]></content>
+      <categories>
+        <category>Pandas</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spark拾遗</title>
+    <url>/2021/04/13/Spark%E6%8B%BE%E9%81%97/</url>
+    <content><![CDATA[<h2 id="spark-overwrite分区覆盖导致全表覆盖问题"><a href="#spark-overwrite分区覆盖导致全表覆盖问题" class="headerlink" title="spark overwrite分区覆盖导致全表覆盖问题"></a>spark overwrite分区覆盖导致全表覆盖问题</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">set hive.<span class="keyword">exec</span>.dynamic.partition=true; </span><br><span class="line">set hive.<span class="keyword">exec</span>.dynamic.partition.mode=nonstrict;</span><br><span class="line">spark.conf.set(<span class="string">"spark.sql.sources.partitionOverwriteMode"</span>,<span class="string">"dynamic"</span>)</span><br><span class="line">df.write.mode(saveMode).insertInto(table)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Spark</category>
+      </categories>
+      <tags>
+        <tag>Spark</tag>
+        <tag>Scala</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Pycharm本地连接Kudu及写入Kafka和Hive</title>
     <url>/2021/04/13/Pycharm%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5Kudu%E5%8F%8A%E5%86%99%E5%85%A5Kafka/</url>
     <content><![CDATA[<h1 id="连接Apollo"><a href="#连接Apollo" class="headerlink" title="连接Apollo"></a>连接Apollo</h1><p>Apollo（阿波罗）是携程框架部门研发的开源配置管理中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性。</p>
@@ -326,31 +365,6 @@
         <tag>Kudu</tag>
         <tag>Kafka</tag>
         <tag>Hive</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Pandas拾遗</title>
-    <url>/2021/04/13/Pandas%E6%8B%BE%E9%81%97/</url>
-    <content><![CDATA[<h2 id="pandas中截取一列字符串中每行字符串的一部分"><a href="#pandas中截取一列字符串中每行字符串的一部分" class="headerlink" title="pandas中截取一列字符串中每行字符串的一部分"></a>pandas中截取一列字符串中每行字符串的一部分</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[<span class="string">'col'</span>].str[<span class="number">1</span>:<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
-
-<h2 id="pandas更改列名"><a href="#pandas更改列名" class="headerlink" title="pandas更改列名"></a>pandas更改列名</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df.rename(columns&#x3D;&#123;&quot;a1&quot;: &quot;a2&quot;, &quot;b1&quot;: &quot;b2&quot;&#125;, inplace&#x3D;True)</span><br></pre></td></tr></table></figure>
-
-<h2 id="pandas读取csv-xls文件时指定列的数据类型"><a href="#pandas读取csv-xls文件时指定列的数据类型" class="headerlink" title="pandas读取csv/xls文件时指定列的数据类型"></a>pandas读取csv/xls文件时指定列的数据类型</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">converters = &#123;<span class="string">"stats_date"</span>: str, <span class="string">"city_code"</span>: str, <span class="string">"call_route_cnt"</span>: int, <span class="string">"reply_route_cnt"</span>: int, <span class="string">"business_id"</span>: int&#125;</span><br><span class="line">df = pd.read_csv(csv_path, converters=converters)</span><br></pre></td></tr></table></figure>
-
-<h2 id="pandas处理某列"><a href="#pandas处理某列" class="headerlink" title="pandas处理某列"></a>pandas处理某列</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[<span class="string">"列名"</span>]=df.apply(<span class="keyword">lambda</span> x:方法名(x,入参<span class="number">2</span>),axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>说明：</strong></p>
-<p>1、方法名为单独的方法名，可以处理传入的x数据</p>
-<p>2、x为每一行的数据，做为方法的入参1；x中的数据可以用【x.列名】来获取</p>
-<p>3、入参2等为方法需要的其他参数，不需要可以不写</p>
-<p>4、axis=1，表示每次取一行数据进行处理，按行处理</p>
-]]></content>
-      <categories>
-        <category>Pandas</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -409,20 +423,6 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>CV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spark拾遗</title>
-    <url>/2021/04/13/Spark%E6%8B%BE%E9%81%97/</url>
-    <content><![CDATA[<h2 id="spark-overwrite分区覆盖导致全表覆盖问题"><a href="#spark-overwrite分区覆盖导致全表覆盖问题" class="headerlink" title="spark overwrite分区覆盖导致全表覆盖问题"></a>spark overwrite分区覆盖导致全表覆盖问题</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">set hive.<span class="keyword">exec</span>.dynamic.partition=true; </span><br><span class="line">set hive.<span class="keyword">exec</span>.dynamic.partition.mode=nonstrict;</span><br><span class="line">spark.conf.set(<span class="string">"spark.sql.sources.partitionOverwriteMode"</span>,<span class="string">"dynamic"</span>)</span><br><span class="line">df.write.mode(saveMode).insertInto(table)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Spark</category>
-      </categories>
-      <tags>
-        <tag>Spark</tag>
-        <tag>Scala</tag>
       </tags>
   </entry>
   <entry>
